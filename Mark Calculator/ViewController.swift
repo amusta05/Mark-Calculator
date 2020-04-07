@@ -16,5 +16,18 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func addItemButtonPressed(_ sender: UIButton) {
+        print("button was pressed")
+    }
+    
+    
+    @IBAction func calculateGradePressed(_ sender: UIButton) {
+        print("calculate button was pressed")
+    }
+    
+    
+    
 }
+
+
 
