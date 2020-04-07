@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YpS-kQ-TCX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Courses-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mark_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,15 +95,6 @@
                                     <action selector="addItemButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Giw-8z-dLW"/>
                                 </connections>
                             </button>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0p-6c-QVO">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="Add Course" image="doc.text.fill" catalog="system" id="qm4-Kr-aEN"/>
-                                    <tabBarItem title="Courses" image="folder.fill" catalog="system" id="EkW-KP-xE6"/>
-                                </items>
-                            </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsi-YP-4jR">
                                 <rect key="frame" x="61" y="732" width="270" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,6 +109,7 @@
                         <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Courses" image="doc.fill" catalog="system" id="ur7-2E-kHv"/>
                     <connections>
                         <outlet property="weightTextField" destination="q6W-y6-TmX" id="h3e-g7-6RX"/>
                         <segue destination="Kin-NC-uID" kind="presentation" identifier="calculateGrade" modalPresentationStyle="fullScreen" id="bxu-XL-2hs"/>
@@ -125,7 +117,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="119.86607142857142"/>
+        </scene>
+        <!--Courses-->
+        <scene sceneID="XxO-fo-lRC">
+            <objects>
+                <viewController id="aM1-JQ-HUg" customClass="CoursesViewController" customModule="Mark_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KWG-N8-1jL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYa-PA-OV2">
+                                <rect key="frame" x="30" y="77" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.68233454230000001" green="0.68236786130000004" blue="0.69865536689999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="thH-nx-aWI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Courses" image="folder.fill" catalog="system" id="kkJ-Dt-fXI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyM-Xf-ojn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="150.72463768115944" y="818.97321428571422"/>
         </scene>
         <!--Calculate Grade View Controller-->
         <scene sceneID="cSY-ry-DdS">
@@ -281,12 +298,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-kS-eco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889.85507246376824" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1800.0000000000002" y="119.86607142857142"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5AT-Nh-fSQ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YpS-kQ-TCX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZB6-hN-NN5">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vtb-1G-XW6"/>
+                        <segue destination="aM1-JQ-HUg" kind="relationship" relationship="viewControllers" id="apC-l8-2lo"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8i-Yp-9oQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="119.86607142857142"/>
         </scene>
     </scenes>
     <resources>
         <image name="backbutton" width="8" height="13"/>
-        <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="doc.fill" catalog="system" width="115" height="128"/>
         <image name="folder.fill" catalog="system" width="128" height="95"/>
     </resources>
 </document>
