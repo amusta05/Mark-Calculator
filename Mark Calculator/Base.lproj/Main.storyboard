@@ -95,8 +95,17 @@
                                     <action selector="addItemButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Giw-8z-dLW"/>
                                 </connections>
                             </button>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0p-6c-QVO">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="Add Course" image="doc.text.fill" catalog="system" id="qm4-Kr-aEN"/>
+                                    <tabBarItem title="Courses" image="folder.fill" catalog="system" id="EkW-KP-xE6"/>
+                                </items>
+                            </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsi-YP-4jR">
-                                <rect key="frame" x="72" y="755" width="270" height="51"/>
+                                <rect key="frame" x="61" y="732" width="270" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
@@ -277,5 +286,7 @@
     </scenes>
     <resources>
         <image name="backbutton" width="8" height="13"/>
+        <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="folder.fill" catalog="system" width="128" height="95"/>
     </resources>
 </document>

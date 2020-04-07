@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let thePicker = UIPickerView()
         thePicker.delegate = self
         weightTextField.inputView = thePicker
+        //createTabBarController()
     }
 
 
@@ -47,6 +48,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.view.endEditing(true)
         
     }
+   
     
     
 }

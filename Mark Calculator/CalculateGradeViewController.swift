@@ -22,4 +22,10 @@ class CalculateGradeViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func addCoursePressed(_ sender: UIButton) {
+        
+        // backend clear screen add to hashmap
+        print("Course was added")
+        self.dismiss(animated: true, completion: nil)
+    }
 }
