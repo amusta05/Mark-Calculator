@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func calculateGradePressed(_ sender: UIButton) {
-        print("calculate button was pressed")
+        self.performSegue(withIdentifier: "calculateGrade", sender:self)
     }
     
     

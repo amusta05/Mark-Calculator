@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA37E3F6243BF95F002C1A9E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */; };
+		AA37E3F8243C2EBE002C1A9E /* CalculateGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */; };
 		AACCF526243BF44800C922FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF525243BF44800C922FC /* AppDelegate.swift */; };
 		AACCF528243BF44800C922FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF527243BF44800C922FC /* SceneDelegate.swift */; };
 		AACCF52A243BF44800C922FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF529243BF44800C922FC /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateGradeViewController.swift; sourceTree = "<group>"; };
 		AACCF522243BF44800C922FC /* Mark Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mark Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCF525243BF44800C922FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AACCF527243BF44800C922FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				AACCF527243BF44800C922FC /* SceneDelegate.swift */,
 				AACCF529243BF44800C922FC /* ViewController.swift */,
 				AACCF52B243BF44800C922FC /* Main.storyboard */,
+				AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */,
 				AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */,
 				AACCF52E243BF44A00C922FC /* Assets.xcassets */,
 				AACCF533243BF44A00C922FC /* Info.plist */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACCF52A243BF44800C922FC /* ViewController.swift in Sources */,
+				AA37E3F8243C2EBE002C1A9E /* CalculateGradeViewController.swift in Sources */,
 				AACCF526243BF44800C922FC /* AppDelegate.swift in Sources */,
 				AACCF528243BF44800C922FC /* SceneDelegate.swift in Sources */,
 			);
