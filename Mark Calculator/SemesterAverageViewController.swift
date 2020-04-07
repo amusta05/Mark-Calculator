@@ -1,5 +1,5 @@
 //
-//  CoursesViewController.swift
+//  SemesterAverageViewController.swift
 //  Mark Calculator
 //
 //  Created by Areeb Mustafa on 2020-04-07.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoursesViewController: UIViewController {
+class SemesterAverageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +16,10 @@ class CoursesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    @IBAction func calculateSemAvgPressed(_ sender: UIButton) {
-        
-        self.performSegue(withIdentifier: "calculateSemAvg", sender: self)
+    @IBAction func backButtonSemAvg(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
+    
     /*
     // MARK: - Navigation
 
