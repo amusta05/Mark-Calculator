@@ -110,6 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="weightTextField" destination="q6W-y6-TmX" id="h3e-g7-6RX"/>
                         <segue destination="Kin-NC-uID" kind="presentation" identifier="calculateGrade" id="bxu-XL-2hs"/>
                     </connections>
                 </viewController>
