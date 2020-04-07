@@ -111,7 +111,7 @@
                     </view>
                     <connections>
                         <outlet property="weightTextField" destination="q6W-y6-TmX" id="h3e-g7-6RX"/>
-                        <segue destination="Kin-NC-uID" kind="presentation" identifier="calculateGrade" id="bxu-XL-2hs"/>
+                        <segue destination="Kin-NC-uID" kind="presentation" identifier="calculateGrade" modalPresentationStyle="fullScreen" id="bxu-XL-2hs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,15 +123,33 @@
             <objects>
                 <viewController id="Kin-NC-uID" customClass="CalculateGradeViewController" customModule="Mark_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8ga-Nu-0pL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backbutton" translatesAutoresizingMaskIntoConstraints="NO" id="l4T-Ad-dqk">
+                                <rect key="frame" x="0.0" y="57" width="49" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtL-bg-tgV">
+                                <rect key="frame" x="29" y="56" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonCalcPressed:" destination="Kin-NC-uID" eventType="touchUpInside" id="Ums-Ti-J3j"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.68233454230000001" green="0.68236786130000004" blue="0.69865536689999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6xG-pv-oZt"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XU3-Go-NCD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-kS-eco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="120"/>
+            <point key="canvasLocation" x="889.85507246376824" y="119.86607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backbutton" width="8" height="13"/>
+    </resources>
 </document>
