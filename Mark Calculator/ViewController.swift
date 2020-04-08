@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var weightTextField: UITextField!
     let myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
-
+    var counter = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,7 +24,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
 
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
-        print("button was pressed")
+       // sender.frame = CGRect(x: 20,y: 327,width: 121,height: 36)
+        
+        print(counter)
+        //print("button was pressed")
+        //counter += 4
+        
     }
     
     
