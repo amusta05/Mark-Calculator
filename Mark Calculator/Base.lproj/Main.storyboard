@@ -111,7 +111,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Courses" image="doc.fill" catalog="system" id="ur7-2E-kHv"/>
                     <connections>
+                        <outlet property="courseItemText" destination="62b-XU-gd4" id="Qqy-Au-Tg7"/>
+                        <outlet property="courseNameText" destination="Rmd-KT-Dcs" id="tgx-A2-1x0"/>
                         <outlet property="weightTextField" destination="q6W-y6-TmX" id="h3e-g7-6RX"/>
+                        <outlet property="worthTextField" destination="URP-PW-saB" id="SuF-fU-lBT"/>
+                        <outlet property="yourMarkTextField" destination="8vd-O7-bLY" id="uJ5-Ha-jos"/>
                         <segue destination="Kin-NC-uID" kind="presentation" identifier="calculateGrade" modalPresentationStyle="fullScreen" id="bxu-XL-2hs"/>
                     </connections>
                 </viewController>

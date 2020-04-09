@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate {
     
     @IBOutlet weak var weightTextField: UITextField!
     let myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
     var counter = 0
+    
+    
+    @IBOutlet weak var courseNameText: UITextField!
+    
+    @IBOutlet weak var courseItemText: UITextField!
+    @IBOutlet weak var yourMarkTextField: UITextField!
+    @IBOutlet weak var worthTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +28,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let thePicker = UIPickerView()
         thePicker.delegate = self
         weightTextField.inputView = thePicker
-        //createTabBarController()
+        courseNameText.delegate = self
+        courseItemText.delegate = self
+        yourMarkTextField.delegate = self
+        worthTextField.delegate = self
+        
+        
     }
 
 
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
-        
-        print(counter)
-        
         
     }
     
@@ -52,7 +62,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.view.endEditing(true)
         
     }
-   
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        courseNameText.endEditing(true)
+        courseItemText.endEditing(true)
+        yourMarkTextField.endEditing(true)
+        worthTextField.endEditing(true)
+        return true
+        
+    }
+    
     
     
 }
