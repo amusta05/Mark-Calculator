@@ -43,6 +43,7 @@ struct Mark {
     func getPercentageOfCourse() -> Float {
         return self.percentageOfCourseMark;
     }
+    
     mutating func setCourseItem(itemName:String) -> Void {
         self.courseItem =  itemName
     }
@@ -63,6 +64,6 @@ struct Mark {
     mutating func updateCourseGradeMark() -> Void {
         self.percentageOfCourseMark = calculatePercentageOfCourseMark()
     }
-    
+    // added a commentt
     
 }
