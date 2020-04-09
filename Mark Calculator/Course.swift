@@ -55,5 +55,17 @@ struct Course {
     func getTotalPercentOfCourse() -> Float {
         return self.totalPercentageOfCourse
     }
-    // add more
+    
+    mutating func setCourseName(courseName: String) -> Void {
+        self.courseName = courseName
+    }
+    mutating func setWeight(weight: Float) -> Void {
+        self.weight = weight
+    }
+    mutating func setCurrentMark(finalExamWorth: Float) -> Void {
+        self.finalExamWorth = finalExamWorth
+    }
+    mutating  func setTotalPercentageOfCourse(totalPercentageOfCourse: Float) -> Void {
+        self.totalPercentageOfCourse = totalPercentageOfCourse
+    }
 }
