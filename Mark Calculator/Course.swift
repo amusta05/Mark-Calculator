@@ -55,5 +55,5 @@ struct Course {
     func getTotalPercentOfCourse() -> Float {
         return self.totalPercentageOfCourse
     }
-    
+    // add more
 }
