@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var weightTextField: UITextField!
     let myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
     var xCounter = 0.0
-    var yCounter  = 326.0
+    var yCounter  = 256.0
     
     @IBOutlet weak var courseNameText: UITextField!
     
@@ -24,9 +24,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var course: Course!
     var mark: Mark!
     var courses: [String:Course] = [:]
-    var yCount: Double = 335
+    var yCount: Double = 265.0
     var helper = HelperMethods()
-    
+    var counter = 0
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -35,8 +35,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 10000)
-
+        
         let thePicker = UIPickerView()
         thePicker.delegate = self
         weightTextField.inputView = thePicker
@@ -44,16 +43,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         courseItemText.delegate = self
         yourMarkTextField.delegate = self
         worthTextField.delegate = self
-        
-        
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 5000)
        
     }
 
 
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
+      
+
          //scrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
         if flag == 0{
-            
+            sender.frame = CGRect(x: 20 , y: 265 , width: 121, height: 36)
             course = Course()
             course.setCourseName(courseName: courseNameText.text!)
             
@@ -94,19 +94,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             mark.setPercentageOfCourseMark(yourMark: totalPercent)
             course.marks.append(mark)
             
-            sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
+            
 
-            let firstTextField = helper.createTextField(x: 20, y: 290 , width: 157, height: 27, viewController: self)
+            let firstTextField = helper.createTextField(x: 20, y: 220 , width: 157, height: 27, viewController: self)
             
             firstTextField.delegate = self
             //self.scrollView.addSubview(firstTextField)
             self.scrollView.addSubview(firstTextField)
             //firstTextField.e
-            let secondTextField = helper.createTextField(x: 186, y: 290, width: 89, height: 27, viewController: self)
+            let secondTextField = helper.createTextField(x: 186, y: 220, width: 89, height: 27, viewController: self)
             secondTextField.delegate = self
             self.scrollView.addSubview(secondTextField)
             
-            let thirdTextField = helper.createTextField(x:280 , y: 290, width: 90, height: 27, viewController: self)
+            let thirdTextField = helper.createTextField(x:280 , y: 220, width: 90, height: 27, viewController: self)
             thirdTextField.delegate = self
             self.scrollView.addSubview(thirdTextField)
             
@@ -131,6 +131,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
            
             
         }
+       
     }
     
     
