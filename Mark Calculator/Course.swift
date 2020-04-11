@@ -68,4 +68,5 @@ struct Course {
     mutating  func setTotalPercentageOfCourse(totalPercentageOfCourse: Float) -> Void {
         self.totalPercentageOfCourse = totalPercentageOfCourse
     }
+    
 }

@@ -56,13 +56,15 @@ struct Mark {
     mutating func setPercentageOfCourseMark(yourMark:Float) -> Void {
            self.percentageOfCourseMark = yourMark
     }
+  
     // helper functions
     func calculatePercentageOfCourseMark() -> Float {
         let calcPercentage  = (self.worth/100) * self.yourMark
         return calcPercentage
     }
-    mutating func updateCourseGradeMark() -> Void {
-        self.percentageOfCourseMark = calculatePercentageOfCourseMark()
+    mutating func updateCourseGradeMark(total:Float) -> Void {
+        self.percentageOfCourseMark = self.calculatePercentageOfCourseMark()
+        self.percentageOfCourseMark = total
     }
     // added a commentt
     

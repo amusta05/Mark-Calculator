@@ -12,19 +12,31 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var weightTextField: UITextField!
     let myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
-    var counter = 0
-    
+    var xCounter = 0.0
+    var yCounter  = 326.0
     
     @IBOutlet weak var courseNameText: UITextField!
     
     @IBOutlet weak var courseItemText: UITextField!
     @IBOutlet weak var yourMarkTextField: UITextField!
     @IBOutlet weak var worthTextField: UITextField!
+    var flag = 0
+    var course: Course!
+    var mark: Mark!
+    var courses: [String:Course] = [:]
+    var yCount: Double = 335
+    var helper = HelperMethods()
+    
+
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 10000)
+
         let thePicker = UIPickerView()
         thePicker.delegate = self
         weightTextField.inputView = thePicker
@@ -34,15 +46,96 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         worthTextField.delegate = self
         
         
+       
     }
 
 
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
-        
+         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
+        if flag == 0{
+            
+            course = Course()
+            course.setCourseName(courseName: courseNameText.text!)
+            
+            var weight = Float(weightTextField.text!)
+            if weight == nil{
+                weight = 0.5;
+                course.setWeight(weight: weight!)
+                weightTextField.text = myPickerData[1]
+            }
+            else{
+                course.setWeight(weight: weight!)
+            }
+            
+            mark = Mark()
+            mark.setCourseItem(itemName: courseItemText.text!)
+            var yourMark = Float(yourMarkTextField.text!)
+            if yourMark == nil{
+                yourMark = 0.0
+                yourMarkTextField.text = "0.0"
+                mark.setYourMark(yourMark: yourMark!)
+            }
+            else{
+                 mark.setYourMark(yourMark: yourMark!)
+            }
+            
+            var markWorth = Float(worthTextField.text!)
+            if markWorth == nil {
+                markWorth = 0.0
+                worthTextField.text = "0.0"
+                mark.setWorth(worth: markWorth!)
+            
+            }
+            else{
+                 mark.setWorth(worth: markWorth!)
+            }
+           
+            let totalPercent = mark.calculatePercentageOfCourseMark()
+            mark.setPercentageOfCourseMark(yourMark: totalPercent)
+            course.marks.append(mark)
+            
+            sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
+
+            let firstTextField = helper.createTextField(x: 20, y: 290 , width: 157, height: 27, viewController: self)
+            
+            firstTextField.delegate = self
+            //self.scrollView.addSubview(firstTextField)
+            self.scrollView.addSubview(firstTextField)
+            //firstTextField.e
+            let secondTextField = helper.createTextField(x: 186, y: 290, width: 89, height: 27, viewController: self)
+            secondTextField.delegate = self
+            self.scrollView.addSubview(secondTextField)
+            
+            let thirdTextField = helper.createTextField(x:280 , y: 290, width: 90, height: 27, viewController: self)
+            thirdTextField.delegate = self
+            self.scrollView.addSubview(thirdTextField)
+            
+            
+            yCount += 35
+            flag = 1
+        }
+        else{
+            let firstTextField = helper.createTextField(x: 20, y: yCounter , width: 157, height: 27, viewController: self)
+                      
+            firstTextField.delegate = self
+            self.scrollView.addSubview(firstTextField)
+            let secondTextField = helper.createTextField(x: 186, y: yCounter, width: 89, height: 27, viewController: self)
+            self.scrollView.addSubview(secondTextField)
+            secondTextField.delegate = self
+            let thirdTextField = helper.createTextField(x:280 , y: yCounter, width: 90, height: 27, viewController: self)
+            thirdTextField.delegate = self
+            sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
+             self.scrollView.addSubview(thirdTextField)
+            yCount += 35
+            yCounter += 36
+           
+            
+        }
     }
     
     
     @IBAction func calculateGradePressed(_ sender: UIButton) {
+        // update couree name and weight
         self.performSegue(withIdentifier: "calculateGrade", sender:self)
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
