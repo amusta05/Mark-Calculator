@@ -29,6 +29,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var counter = 1
     var stealer: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    var firstTextField: UITextField!
+    var secondTextField: UITextField!
+    var thirdTextField: UITextField!
     var yCountForCalc: Int = 732
     
     @IBOutlet weak var calculateButton: UIButton!
@@ -44,8 +48,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         courseItemText.delegate = self
         yourMarkTextField.delegate = self
         worthTextField.delegate = self
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 5000)
-       
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 3000) 
+        
+        firstTextField = courseItemText
+        secondTextField = yourMarkTextField
+        thirdTextField = worthTextField
     }
 
 
@@ -57,7 +64,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             sender.frame = CGRect(x: 20 , y: 265 , width: 121, height: 36)
             course = Course()
             course.setCourseName(courseName: courseNameText.text!)
-            
+      
             var weight = Float(weightTextField.text!)
             if weight == nil{
                 weight = 0.5;
@@ -97,36 +104,36 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             
 
-            let firstTextField = helper.createTextField(x: 20, y: 220 , width: 157, height: 27, viewController: self)
+            firstTextField = helper.createTextField(x: 20, y: 220 , width: 157, height: 27, viewController: self)
             
             firstTextField.delegate = self
-            //self.scrollView.addSubview(firstTextField)
+            
             self.scrollView.addSubview(firstTextField)
-            //firstTextField.e
-            let secondTextField = helper.createTextField(x: 186, y: 220, width: 89, height: 27, viewController: self)
+            secondTextField = helper.createTextField(x: 186, y: 220, width: 89, height: 27, viewController: self)
             secondTextField.delegate = self
             self.scrollView.addSubview(secondTextField)
             
-            let thirdTextField = helper.createTextField(x:280 , y: 220, width: 90, height: 27, viewController: self)
+            thirdTextField = helper.createTextField(x:280 , y: 220, width: 90, height: 27, viewController: self)
             thirdTextField.delegate = self
             self.scrollView.addSubview(thirdTextField)
-            
-            
+            firstTextField.endEditing(true)
             yCount += 35
             flag = 1
         }
         else{
-            let firstTextField = helper.createTextField(x: 20, y: yCounter , width: 157, height: 27, viewController: self)
+            firstTextField = helper.createTextField(x: 20, y: yCounter , width: 157, height: 27, viewController: self)
                       
             firstTextField.delegate = self
             self.scrollView.addSubview(firstTextField)
-            let secondTextField = helper.createTextField(x: 186, y: yCounter, width: 89, height: 27, viewController: self)
+            secondTextField = helper.createTextField(x: 186, y: yCounter, width: 89, height: 27, viewController: self)
             self.scrollView.addSubview(secondTextField)
             secondTextField.delegate = self
-            let thirdTextField = helper.createTextField(x:280 , y: yCounter, width: 90, height: 27, viewController: self)
+            thirdTextField = helper.createTextField(x:280 , y: yCounter, width: 90, height: 27, viewController: self)
             thirdTextField.delegate = self
             sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
-             self.scrollView.addSubview(thirdTextField)
+            self.scrollView.addSubview(thirdTextField)
+         
+         
             yCount += 35
             yCounter += 36
            
@@ -140,12 +147,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }
         counter += 1
-        if counter > 12{
+        if counter >= 12{
             calculateButton.frame = CGRect(x: 61, y: yCountForCalc, width: 270, height: 51)
             yCountForCalc += 40
         }
-        print(yCount)
-        print(yCounter)
     }
     
     
@@ -175,10 +180,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         courseItemText.endEditing(true)
         yourMarkTextField.endEditing(true)
         worthTextField.endEditing(true)
+        firstTextField.endEditing(true)
+        secondTextField.endEditing(true)
+        thirdTextField.endEditing(true)
         return true
         
     }
-    
+    // make this a helper function later
+  
     
     
 }

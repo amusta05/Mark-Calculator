@@ -23,7 +23,7 @@ class HelperMethods {
         sampleTextField.borderStyle = UITextField.BorderStyle.line
         sampleTextField.autocorrectionType = UITextAutocorrectionType.no
         sampleTextField.keyboardType = UIKeyboardType.default
-        sampleTextField.returnKeyType = UIReturnKeyType.done
+        sampleTextField.returnKeyType = UIReturnKeyType.default
         sampleTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         sampleTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         sampleTextField.backgroundColor = UIColor.systemGray5
