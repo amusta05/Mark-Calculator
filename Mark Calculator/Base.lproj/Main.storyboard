@@ -119,6 +119,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Courses" image="doc.fill" catalog="system" id="ur7-2E-kHv"/>
                     <connections>
+                        <outlet property="calculateButton" destination="vsi-YP-4jR" id="hMM-Aq-aZ2"/>
                         <outlet property="courseItemText" destination="62b-XU-gd4" id="Qqy-Au-Tg7"/>
                         <outlet property="courseNameText" destination="Rmd-KT-Dcs" id="tgx-A2-1x0"/>
                         <outlet property="scrollView" destination="Z66-V4-PJJ" id="xjE-SX-j40"/>

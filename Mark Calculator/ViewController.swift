@@ -26,11 +26,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var courses: [String:Course] = [:]
     var yCount: Double = 265.0
     var helper = HelperMethods()
-    var counter = 0
-
+    var counter = 1
+    var stealer: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    var yCountForCalc: Int = 732
     
-    
+    @IBOutlet weak var calculateButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -131,7 +132,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
            
             
         }
-       
+        if yCount-yCounter != 44{
+            var totalDif = 44
+            let  diff = yCount-yCounter
+            totalDif = totalDif - Int(diff)
+            yCount = yCount + Double(totalDif)
+            
+        }
+        counter += 1
+        if counter > 12{
+            calculateButton.frame = CGRect(x: 61, y: yCountForCalc, width: 270, height: 51)
+            yCountForCalc += 40
+        }
+        print(yCount)
+        print(yCounter)
     }
     
     
