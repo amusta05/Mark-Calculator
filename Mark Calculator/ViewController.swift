@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var weightTextField: UITextField!
     let myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
     var xCounter = 0.0
-    var yCounter  = 256.0
+    var yCounter  = 220.0
     
     @IBOutlet weak var courseNameText: UITextField!
     
@@ -22,17 +22,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var worthTextField: UITextField!
     var flag = 0
     var course: Course!
-    var mark: Mark!
     var courses: [String:Course] = [:]
     var yCount: Double = 265.0
     var helper = HelperMethods()
     var counter = 1
     var stealer: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    var globalVar: Float = 0
-    var globalVar2:Float = 0
-    var globalVar3: Float = 0
-    var globalVar4:Float = 0
+    var globalString:String = ""
     
     var firstTextField: UITextField!
     var secondTextField: UITextField!
@@ -44,6 +40,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //print(courseItemText.text!)
         
         let thePicker = UIPickerView()
         thePicker.delegate = self
@@ -63,85 +60,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
         
         
-        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
-        if flag == 0{
-            sender.frame = CGRect(x: 20 , y: 265 , width: 121, height: 36)
-            course = Course()
-            course.setCourseName(courseName: courseNameText.text!)
-            
-            var weight = Float(weightTextField.text!)
-            if weight == nil{
-                weight = 0.5;
-                course.setWeight(weight: weight!)
-                weightTextField.text = myPickerData[1]
-            }
-            else{
-                course.setWeight(weight: weight!)
-            }
-            
-            mark = Mark()
-            // course item gets set
-            mark.setCourseItem(itemName: courseItemText.text!)
-            
-            mark.setWorth(worth: globalVar)
-            mark.setYourMark(yourMark: globalVar2)
-            
-            
-            
-            
-            let totalPercent = mark.calculatePercentageOfCourseMark()
-            mark.setPercentageOfCourseMark(yourMark: totalPercent)
-            course.marks.append(mark)
-            
-            mark = Mark()
-            
-            firstTextField = helper.createTextField(x: 20, y: 220 , width: 157, height: 27, viewController: self)
-            
-            firstTextField.delegate = self
-            
-            self.scrollView.addSubview(firstTextField)
-            secondTextField = helper.createTextField(x: 186, y: 220, width: 89, height: 27, viewController: self)
-            secondTextField.delegate = self
-            self.scrollView.addSubview(secondTextField)
-            
-            mark.setWorth(worth: globalVar3)
-            
-            thirdTextField = helper.createTextField(x:280 , y: 220, width: 90, height: 27, viewController: self)
-            thirdTextField.delegate = self
-            self.scrollView.addSubview(thirdTextField)
-            mark.setYourMark(yourMark: globalVar4)
-            
-            
-            course.marks.append(mark)
-            
-            yCount += 35
-            flag = 1
+        firstTextField = helper.createTextField(x: 20, y: yCounter , width: 157, height: 27, viewController: self)
+        
+        firstTextField.delegate = self
+        self.scrollView.addSubview(firstTextField)
+        
+        secondTextField = helper.createTextField(x: 186, y: yCounter, width: 89, height: 27, viewController: self)
+        self.scrollView.addSubview(secondTextField)
+        secondTextField.delegate = self
+        let worth = Float(secondTextField.text!)
+        if  worth == nil{
+            secondTextField.text = "0.0"
         }
-        else{
-            mark = Mark()
-            firstTextField = helper.createTextField(x: 20, y: yCounter , width: 157, height: 27, viewController: self)
-            
-            firstTextField.delegate = self
-            self.scrollView.addSubview(firstTextField)
-            secondTextField = helper.createTextField(x: 186, y: yCounter, width: 89, height: 27, viewController: self)
-            self.scrollView.addSubview(secondTextField)
-            secondTextField.delegate = self
-            mark.setWorth(worth: globalVar3)
-            
-            thirdTextField = helper.createTextField(x:280 , y: yCounter, width: 90, height: 27, viewController: self)
-            thirdTextField.delegate = self
-            sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
-            self.scrollView.addSubview(thirdTextField)
-            mark.setYourMark(yourMark: globalVar4)
-            course.marks.append(mark)
-            
-            
-            yCount += 35
-            yCounter += 36
-            print(mark.yourMark)
-            
-            
+        thirdTextField = helper.createTextField(x:280 , y: yCounter, width: 90, height: 27, viewController: self)
+        thirdTextField.delegate = self
+        sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
+        self.scrollView.addSubview(thirdTextField)
+        let yourMark = Float(thirdTextField.text!)
+        if yourMark  == nil{
+            thirdTextField.text = "0.0"
         }
+        
+        yCount += 35
+        yCounter += 36
         if yCount-yCounter != 44{
             var totalDif = 44
             let  diff = yCount-yCounter
@@ -160,7 +101,36 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     @IBAction func calculateGradePressed(_ sender: UIButton) {
-        // update couree name and weight
+        
+        course = Course()
+        weightTextField.text = myPickerData[1]
+        let allTextField = getTextfield(view: self.view)
+        let len = allTextField.count-1
+        print(len)
+        var i = 2
+        while i < len{
+            //print("comes here")
+            var mark = Mark()
+            mark.setCourseItem(itemName: allTextField[i].text!)
+            i = i+1
+            var worth = Float(allTextField[i].text!)
+            if  worth == nil{
+                worth = 0.0
+            }
+            mark.setWorth(worth: worth!)
+            i = i+1
+            print("i is \(i)")
+            var yourMark = Float(allTextField[i].text!)
+            if yourMark  == nil{
+                yourMark = 0.0
+            }
+            mark.setYourMark(yourMark: yourMark!)
+            let total = mark.calculatePercentageOfCourseMark()
+            mark.updateCourseGradeMark(total: total)
+            course.marks.append(mark)
+            i = i+1
+        }
+        
         self.performSegue(withIdentifier: "calculateGrade", sender:self)
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -181,59 +151,47 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        var markWorth = Float(worthTextField.text!)
-        if markWorth == nil{
-            worthTextField.text = "0.0"
-            markWorth = 0.0
-            globalVar = markWorth!
-        }
-        else{
-            globalVar =  markWorth!
-        }
-        var yourMark = Float(yourMarkTextField.text!)
-        if yourMark == nil{
-            yourMarkTextField.text = "0.0"
-            yourMark = 0.0
-            globalVar2 =  yourMark!
-        }
-        else{
-            globalVar2 = yourMark!
-        }
-        var markWorth2 = Float(secondTextField.text!)
-        if markWorth2 == nil{
-            secondTextField.text = "0.0"
-            markWorth2 = 0.0
-            globalVar3 = markWorth2!
-        }
-        else{
-            globalVar3 = markWorth2!
-        }
-        var yourMark2 = Float(thirdTextField.text!)
-        if yourMark2 == nil{
-            thirdTextField.text = "0.0"
-            yourMark2 = 0.0
-            globalVar4 =  yourMark2!
-        }
-        else{
-            globalVar4  = yourMark2!
-        }
-       
-        
-        
         
         courseNameText.endEditing(true)
-        courseItemText.endEditing(true)
+      
         yourMarkTextField.endEditing(true)
+        let yourMark = Float(yourMarkTextField.text!)
+        if  yourMark == nil{
+            yourMarkTextField.text = "0.0"
+        }
         worthTextField.endEditing(true)
+        let worth = Float(worthTextField.text!)
+        if  worth == nil{
+            worthTextField.text = "0.0"
+        }
         firstTextField.endEditing(true)
+      
         secondTextField.endEditing(true)
+        let worth2 = Float(secondTextField.text!)
+        if  worth2 == nil{
+            secondTextField.text = "0.0"
+        }
         thirdTextField.endEditing(true)
+        let yourMark2 = Float(thirdTextField.text!)
+        if  yourMark2 == nil{
+            thirdTextField.text = "0.0"
+        }
         return true
         
     }
-    // make this a helper function later
     
     
+    func getTextfield(view: UIView) -> [UITextField] {
+        var results = [UITextField]()
+        for subview in view.subviews as [UIView] {
+            if let textField = subview as? UITextField {
+                results += [textField]
+            } else {
+                results += getTextfield(view: subview)
+            }
+        }
+        return results
+    }
     
 }
 
