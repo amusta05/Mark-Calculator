@@ -215,6 +215,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! CalculateGradeViewController
         vc.array = course.marks
+        vc.course = course
     }
     func createAlert(title: String,message: String) -> Void{
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -224,6 +225,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }))
         self.present(alert,animated: true,completion: nil)
     }
+    
+  
     
 }
 

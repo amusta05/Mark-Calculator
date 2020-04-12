@@ -32,4 +32,19 @@ class HelperMethods {
         return sampleTextField
         
     }
+    func getTotalPercentOfCourse(marks: [Mark]) -> Float {
+        var total: Float = 0.0
+        for mark in marks{
+            total = total + mark.getPercentageOfCourse()
+        }
+        return total
+    }
+    func getTotalWorth(marks: [Mark]) -> Float {
+        var total: Float = 0.0
+        for mark in marks{
+            total = total + mark.getWorth()
+        }
+        return total
+    }
+   
 }
