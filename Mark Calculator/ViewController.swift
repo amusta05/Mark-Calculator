@@ -110,6 +110,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         course.setWeight(weight: weight!)
         //weightTextField.text = myPickerData[row]
         let allTextField = getTextfield(view: self.view)
+        print("length is \(allTextField.count)")
         let len = allTextField.count-1
         
         var i = 2
@@ -202,6 +203,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
         }
         return results
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! CalculateGradeViewController
+        vc.array = course.marks
     }
     
 }

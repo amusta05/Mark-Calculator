@@ -10,6 +10,8 @@ import UIKit
 
 class CalculateGradeViewController: UIViewController {
 
+    var viewController: ViewController = ViewController()
+    var array: [Mark] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,7 @@ class CalculateGradeViewController: UIViewController {
     
   
     @IBAction func backButtonCalcPressed(_ sender: UIButton) {
+        array.removeAll()
         self.dismiss(animated: true, completion: nil)
     }
     
