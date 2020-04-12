@@ -22,6 +22,9 @@ class CalculateGradeViewController: UIViewController {
   
     @IBOutlet weak var courseCompletedLabel: UILabel!
     
+    
+    @IBOutlet weak var finalExamWorthLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +37,8 @@ class CalculateGradeViewController: UIViewController {
         let completed = String(format: "%.1f%%",helper.getTotalWorth(marks: array))
         courseCompletedLabel.text = completed
         
+        let finalExam = String(format: "%.1f%%",getFinalExamWorth(marks: array))
+        finalExamWorthLabel.text = finalExam
     }
     
     

@@ -339,9 +339,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5f6-B7-vvj">
-                                <rect key="frame" x="186" y="238" width="126" height="20"/>
+                                <rect key="frame" x="186" y="239" width="126" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -354,6 +354,7 @@
                         <outlet property="courseCompletedLabel" destination="zne-F4-eLi" id="Xvt-dv-SBl"/>
                         <outlet property="courseNameLabel" destination="Q2Y-2I-1da" id="16B-pC-VeR"/>
                         <outlet property="currentMarkLabel" destination="LQO-ey-ZO3" id="V7f-Rv-atp"/>
+                        <outlet property="finalExamWorthLabel" destination="5f6-B7-vvj" id="EgX-Nb-hn1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-kS-eco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
