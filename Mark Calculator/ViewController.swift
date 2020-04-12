@@ -41,7 +41,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Do any additional setup after loading the view.
         
         //print(courseItemText.text!)
-        
+        weightTextField.text = myPickerData[1]
         let thePicker = UIPickerView()
         thePicker.delegate = self
         weightTextField.inputView = thePicker
@@ -103,10 +103,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func calculateGradePressed(_ sender: UIButton) {
         
         course = Course()
-        weightTextField.text = myPickerData[1]
+        var weight = Float(weightTextField.text!)
+        if weight == nil{
+            weight = 0.5
+        }
+        course.setWeight(weight: weight!)
+        //weightTextField.text = myPickerData[row]
         let allTextField = getTextfield(view: self.view)
         let len = allTextField.count-1
-        print(len)
+        
         var i = 2
         while i < len{
             //print("comes here")
@@ -119,7 +124,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
             mark.setWorth(worth: worth!)
             i = i+1
-            print("i is \(i)")
+            //print("i is \(i)")
             var yourMark = Float(allTextField[i].text!)
             if yourMark  == nil{
                 yourMark = 0.0
@@ -130,6 +135,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             course.marks.append(mark)
             i = i+1
         }
+        for mark in course.marks {
+            print(mark.getCourseItem())
+            print(mark.getWorth())
+            print(mark.getYourMark())
+        }
+        print(weight!)
         
         self.performSegue(withIdentifier: "calculateGrade", sender:self)
     }
@@ -153,7 +164,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         courseNameText.endEditing(true)
-      
+        
         yourMarkTextField.endEditing(true)
         let yourMark = Float(yourMarkTextField.text!)
         if  yourMark == nil{
@@ -165,7 +176,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             worthTextField.text = "0.0"
         }
         firstTextField.endEditing(true)
-      
+        
         secondTextField.endEditing(true)
         let worth2 = Float(secondTextField.text!)
         if  worth2 == nil{
