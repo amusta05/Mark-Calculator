@@ -103,45 +103,53 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func calculateGradePressed(_ sender: UIButton) {
         
         course = Course()
-        var weight = Float(weightTextField.text!)
-        if weight == nil{
-            weight = 0.5
+        if courseNameText.text == nil || courseNameText.text?.count == 0{
+            createAlert(title: "Error", message: "You must enter a course name")
         }
-        course.setWeight(weight: weight!)
-        //weightTextField.text = myPickerData[row]
-        let allTextField = getTextfield(view: self.view)
-        print("length is \(allTextField.count)")
-        let len = allTextField.count-1
+        else{
+            course.setCourseName(courseName: courseNameText.text!)
+            var weight = Float(weightTextField.text!)
+            if weight == nil{
+                weight = 0.5
+            }
+            course.setWeight(weight: weight!)
+            //weightTextField.text = myPickerData[row]
+            let allTextField = getTextfield(view: self.view)
+            //print("length is \(allTextField.count)")
+            let len = allTextField.count-1
+            
+            var i = 2
+            while i < len{
+                //print("comes here")
+                var mark = Mark()
+                mark.setCourseItem(itemName: allTextField[i].text!)
+                i = i+1
+                var worth = Float(allTextField[i].text!)
+                if  worth == nil{
+                    worth = 0.0
+                }
+                mark.setWorth(worth: worth!)
+                i = i+1
+                //print("i is \(i)")
+                var yourMark = Float(allTextField[i].text!)
+                if yourMark  == nil{
+                    yourMark = 0.0
+                }
+                mark.setYourMark(yourMark: yourMark!)
+                let total = mark.calculatePercentageOfCourseMark()
+                mark.updateCourseGradeMark(total: total)
+                course.marks.append(mark)
+                i = i+1
+            }
+            for mark in course.marks {
+                print(mark.getCourseItem())
+                print(mark.getWorth())
+                print(mark.getYourMark())
+            }
+            print(weight!)
+            
+        }
         
-        var i = 2
-        while i < len{
-            //print("comes here")
-            var mark = Mark()
-            mark.setCourseItem(itemName: allTextField[i].text!)
-            i = i+1
-            var worth = Float(allTextField[i].text!)
-            if  worth == nil{
-                worth = 0.0
-            }
-            mark.setWorth(worth: worth!)
-            i = i+1
-            //print("i is \(i)")
-            var yourMark = Float(allTextField[i].text!)
-            if yourMark  == nil{
-                yourMark = 0.0
-            }
-            mark.setYourMark(yourMark: yourMark!)
-            let total = mark.calculatePercentageOfCourseMark()
-            mark.updateCourseGradeMark(total: total)
-            course.marks.append(mark)
-            i = i+1
-        }
-        for mark in course.marks {
-            print(mark.getCourseItem())
-            print(mark.getWorth())
-            print(mark.getYourMark())
-        }
-        print(weight!)
         
         self.performSegue(withIdentifier: "calculateGrade", sender:self)
     }
@@ -207,6 +215,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! CalculateGradeViewController
         vc.array = course.marks
+    }
+    func createAlert(title: String,message: String) -> Void{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        
+        }))
+        self.present(alert,animated: true,completion: nil)
     }
     
 }
