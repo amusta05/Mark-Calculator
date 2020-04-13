@@ -48,11 +48,29 @@ class CalculateGradeViewController: UIViewController {
         
         currentMarkLabel.text = currentMark
         courseCompletedLabel.text = ""
-        let completed = String(format: "%.1f%%",helper.getTotalWorth(marks: array))
+        let completed = String(format: "%.1f %%",helper.getTotalWorth(marks: array))
         courseCompletedLabel.text = completed
         
-        let finalExam = String(format: "%.1f%%",getFinalExamWorth(marks: array))
+        let finalExam = String(format: "%.1f %%",getFinalExamWorth(marks: array))
         finalExamWorthLabel.text = finalExam
+        
+        let toGet50 = String(format: "%.1f %%",calculateToGetNMark(n: 50, array: array))
+        toGet50Label.text = toGet50
+        
+        let toGet60 = String(format: "%.1f %%",calculateToGetNMark(n: 60, array: array))
+        toGet60Label.text = toGet60
+        
+        let toGet70 = String(format: "%.1f %%",calculateToGetNMark(n: 70, array: array))
+        toget70Label.text = toGet70
+        
+        let toGet80 = String(format: "%.1f %%",calculateToGetNMark(n: 80, array: array))
+        toGet80Label.text = toGet80
+        
+        let toGet90 = String(format: "%.1f %%",calculateToGetNMark(n: 90, array: array))
+        toGet90Label.text = toGet90
+        
+        let toGet100 = String(format: "%.1f %%",calculateToGetNMark(n: 100, array: array))
+        toGet100Label.text = toGet100
     }
     
     
