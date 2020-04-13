@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate {
     
     @IBOutlet weak var weightTextField: UITextField!
-    let myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
+    var myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
     var xCounter = 0.0
     var yCounter  = 220.0
     
@@ -34,13 +34,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var secondTextField: UITextField!
     var thirdTextField: UITextField!
     var yCountForCalc: Int = 732
-    
+    var allTextField: [UITextField]!
+   
+    @IBOutlet weak var addItemOutlet: UIButton!
     @IBOutlet weak var calculateButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("coming to the top")
         // Do any additional setup after loading the view.
         
         //print(courseItemText.text!)
+        
         weightTextField.text = myPickerData[1]
         let thePicker = UIPickerView()
         thePicker.delegate = self
@@ -55,10 +60,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         secondTextField = yourMarkTextField
         thirdTextField = worthTextField
     }
-    
+   
     
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
-        
         
         firstTextField = helper.createTextField(x: 20, y: yCounter , width: 157, height: 27, viewController: self)
         
@@ -114,7 +118,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
             course.setWeight(weight: weight!)
             //weightTextField.text = myPickerData[row]
-            let allTextField = getTextfield(view: self.view)
+            allTextField = getTextfield(view: self.view)
             //print("length is \(allTextField.count)")
             let len = allTextField.count-1
             
@@ -152,6 +156,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         self.performSegue(withIdentifier: "calculateGrade", sender:self)
+        
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -212,10 +217,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         return results
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! CalculateGradeViewController
         vc.array = course.marks
         vc.course = course
+        vc.map = courses
+        vc.courseName = courseNameText
+        vc.courseWeight = weightTextField
+        vc.first = firstTextField
+        vc.second = secondTextField
+        vc.third = thirdTextField
+        vc.allUIText = allTextField
+        vc.addItemButton = addItemOutlet
+        vc.calcButton = calculateButton
+        //vc.wrapperViewDidLoad() = self.wrapper()
     }
     func createAlert(title: String,message: String) -> Void{
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

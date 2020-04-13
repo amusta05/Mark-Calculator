@@ -119,6 +119,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Courses" image="doc.fill" catalog="system" id="ur7-2E-kHv"/>
                     <connections>
+                        <outlet property="addItemOutlet" destination="FBT-9o-sKb" id="JSM-m1-y0M"/>
                         <outlet property="calculateButton" destination="vsi-YP-4jR" id="hMM-Aq-aZ2"/>
                         <outlet property="courseItemText" destination="62b-XU-gd4" id="Qqy-Au-Tg7"/>
                         <outlet property="courseNameText" destination="Rmd-KT-Dcs" id="tgx-A2-1x0"/>
@@ -316,6 +317,9 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <state key="normal" title="Add Course"/>
+                                <connections>
+                                    <action selector="addCourseButtonPressed:" destination="Kin-NC-uID" eventType="touchUpInside" id="9c7-1f-Frx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQO-ey-ZO3">
                                 <rect key="frame" x="193" y="154" width="161" height="20"/>
