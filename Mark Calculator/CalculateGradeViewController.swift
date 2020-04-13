@@ -25,6 +25,20 @@ class CalculateGradeViewController: UIViewController {
     
     @IBOutlet weak var finalExamWorthLabel: UILabel!
     
+    @IBOutlet weak var toGet50Label: UILabel!
+    
+    
+    @IBOutlet weak var toGet60Label: UILabel!
+    
+    
+    @IBOutlet weak var toget70Label: UILabel!
+    
+    @IBOutlet weak var toGet80Label: UILabel!
+    
+    @IBOutlet weak var toGet90Label: UILabel!
+    
+    
+    @IBOutlet weak var toGet100Label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,5 +82,16 @@ class CalculateGradeViewController: UIViewController {
         //print("total Mark is \ (totalMark)" )
         totalMark = totalMark  * 100
         return totalMark
+    }
+    func calculateToGetNMark(n: Int,array:[Mark]) -> Float {
+        
+        let totalPercent  = helper.getTotalPercentOfCourse(marks: array)
+        
+        let finalExamWorth = getFinalExamWorth(marks: array)
+        var total = Float(n) - totalPercent
+        total = total / (finalExamWorth/100)
+        //total = total / (
+        
+        return total
     }
 }

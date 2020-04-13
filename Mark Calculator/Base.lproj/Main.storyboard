@@ -269,35 +269,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1W-SK-rFI">
-                                <rect key="frame" x="322" y="325" width="14" height="21"/>
+                                <rect key="frame" x="322" y="325" width="39" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49411764705882355" green="0.074509803921568626" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yry-BE-RVI">
-                                <rect key="frame" x="322" y="368" width="14" height="21"/>
+                                <rect key="frame" x="322" y="368" width="39" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49278236040000001" green="0.073420984829999994" blue="0.1126439772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqt-QP-mSx">
-                                <rect key="frame" x="322" y="411" width="14" height="21"/>
+                                <rect key="frame" x="322" y="411" width="39" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49278236040000001" green="0.073420984829999994" blue="0.1126439772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyI-FP-6RT">
-                                <rect key="frame" x="322" y="454" width="14" height="21"/>
+                                <rect key="frame" x="322" y="454" width="39" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49278236040000001" green="0.073420984829999994" blue="0.1126439772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-ph-1BJ">
-                                <rect key="frame" x="322" y="498" width="14" height="21"/>
+                                <rect key="frame" x="322" y="498" width="39" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49278236040000001" green="0.073420984829999994" blue="0.1126439772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -355,6 +355,12 @@
                         <outlet property="courseNameLabel" destination="Q2Y-2I-1da" id="16B-pC-VeR"/>
                         <outlet property="currentMarkLabel" destination="LQO-ey-ZO3" id="V7f-Rv-atp"/>
                         <outlet property="finalExamWorthLabel" destination="5f6-B7-vvj" id="EgX-Nb-hn1"/>
+                        <outlet property="toGet100Label" destination="a0j-dw-bT0" id="28B-4h-SGZ"/>
+                        <outlet property="toGet50Label" destination="e1W-SK-rFI" id="3aC-ZW-btq"/>
+                        <outlet property="toGet60Label" destination="Yry-BE-RVI" id="KtV-6J-huz"/>
+                        <outlet property="toGet80Label" destination="HyI-FP-6RT" id="Vvt-uS-7bd"/>
+                        <outlet property="toGet90Label" destination="GM0-ph-1BJ" id="dD0-pX-apv"/>
+                        <outlet property="toget70Label" destination="dqt-QP-mSx" id="LM4-Re-IgS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-kS-eco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
