@@ -162,9 +162,6 @@
                                 <state key="normal" title="Calculate Semester Average">
                                     <color key="titleColor" red="0.074509803921568626" green="0.49411764705882355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="calculateSemAvgPressed:" destination="aM1-JQ-HUg" eventType="touchUpInside" id="QCH-q4-3lC"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.68233454230000001" green="0.68236786130000004" blue="0.69865536689999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -178,6 +175,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Courses" image="folder.fill" catalog="system" id="kkJ-Dt-fXI"/>
                     <connections>
+                        <outlet property="calcSemesterButton" destination="MAc-zJ-sq2" id="L8T-3D-Sgt"/>
                         <outlet property="scrollView" destination="QoN-6j-jKh" id="QIy-CE-E5m"/>
                         <segue destination="kno-KY-6o2" kind="presentation" identifier="calculateSemAvg" modalPresentationStyle="fullScreen" id="jR6-KG-vUz"/>
                     </connections>

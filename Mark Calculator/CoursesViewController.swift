@@ -12,28 +12,39 @@ class CoursesViewController: UIViewController {
     
     var dict: [String: Course] = [:]
     var yCounter = 125.0
+    var yCount = 797.0
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var calcSemesterButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(dict.count)
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 1000)
-        
-        for (key,_) in dict{
-            let button = UIButton(type:.system)
-            
-            button.frame = CGRect(x: 21, y: yCounter, width: 357, height: 47)
-            button.backgroundColor = UIColor.systemGray6
-            button.setTitle(key, for:.normal )
-            button.setTitleColor(UIColorFromRGB(rgbValue: 0x137EFF), for: .normal)
-            button.tintColor = .blue
-            
-            button.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 17.0)
-            button.addTarget(self, action: #selector(self.buttonClicked), for: UIControl.Event.touchUpInside)
-            self.view.addSubview(button)
-            yCounter += 80
+        var i = 0;
+        for (key,_) in dict {
+                let button = UIButton(type:.system)
+                
+                button.frame = CGRect(x: 21, y: yCounter, width: 357, height: 47)
+                button.backgroundColor = UIColor.systemGray6
+                button.setTitle(key, for:.normal )
+                button.setTitleColor(UIColorFromRGB(rgbValue: 0x137EFF), for: .normal)
+                button.tintColor = .blue
+                
+                button.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 17.0)
+                button.addTarget(self, action: #selector(self.buttonClicked), for: UIControl.Event.touchUpInside)
+                self.view.addSubview(button)
+                yCounter += 60
+                print("yCounter is \(yCounter)")
+                i += 1
+                if i >= 10{
+                    calcSemesterButton.frame = CGRect(x: 34, y: yCount, width: 346, height: 62)
+                    yCount += 80
+                    print("yCount is \(yCount)")
+                }
         }
+        
+
         
         // Do any additional setup after loading the view.
     }
