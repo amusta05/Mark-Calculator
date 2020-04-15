@@ -35,7 +35,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var thirdTextField: UITextField!
     var yCountForCalc: Int = 732
     var allTextField: [UITextField]!
-   
+    
     @IBOutlet weak var addItemOutlet: UIButton!
     @IBOutlet weak var calculateButton: UIButton!
     
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         secondTextField = yourMarkTextField
         thirdTextField = worthTextField
     }
-   
+    
     
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
         
@@ -231,18 +231,41 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         vc.allUIText = allTextField
         vc.addItemButton = addItemOutlet
         vc.calcButton = calculateButton
+        vc.map = courses
+        vc.course  = course
+        
         //vc.wrapperViewDidLoad() = self.wrapper()
     }
     func createAlert(title: String,message: String) -> Void{
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
-        
+            
         }))
         self.present(alert,animated: true,completion: nil)
     }
+    @IBAction func unwindToView(_ sender: UIStoryboardSegue) {
+        guard let calc = sender.source as? CalculateGradeViewController else {return}
+        print(calc.course!)
+        courses[calc.course.courseName] = calc.course!
+        courseNameText.text = ""
+        weightTextField.text = "0.5"
+        firstTextField.text = ""
+        secondTextField.text = ""
+        thirdTextField.text = ""
+        let len = allTextField.count-1
+        var i = 5
+        while i <= len{
+            
+            allTextField[i].removeFromSuperview()
+            i = i + 1
+            
+        }
+        addItemOutlet.frame = CGRect(x: 20, y: 230, width: 121, height: 36)
+        calculateButton.frame = CGRect(x: 61, y: 662, width: 270, height: 51)
+    }
     
-  
+    
     
 }
 

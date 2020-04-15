@@ -104,33 +104,34 @@ class CalculateGradeViewController: UIViewController {
     
     
     
-    @IBAction func addCourseButtonPressed(_ sender: UIButton) {
-        
-        
-        
-        map[course.getCourseName()] = course
-        for (key, value) in map {
-            print("\(key) : \(value)")
-        }
-        self.dismiss(animated: true, completion: nil)
-        courseName.text = ""
-        courseWeight.text = "0.5"
-        first.text = ""
-        second.text = ""
-        third.text = ""
-        let len = allUIText.count-1
-        var i = 5
-        while i <= len{
-            
-            allUIText[i].removeFromSuperview()
-            i = i + 1
-            
-        }
-        addItemButton.frame = CGRect(x: 20, y: 230, width: 121, height: 36)
-        calcButton.frame = CGRect(x: 61, y: 662, width: 270, height: 51)
-        print("the map count is \(map.count)")
-        
-    }
+//    @IBAction func addCourseButtonPressed(_ sender: UIButton) {
+//
+//
+//
+///     map[course.getCourseName()] = course
+///        for (key, value) in map {
+///            print("\(key) : \(value)")
+////        }
+//
+//        self.dismiss(animated: true, completion: nil)
+//        courseName.text = ""
+//        courseWeight.text = "0.5"
+//        first.text = ""
+//        second.text = ""
+//        third.text = ""
+//        let len = allUIText.count-1
+//        var i = 5
+//        while i <= len{
+//
+//            allUIText[i].removeFromSuperview()
+//            i = i + 1
+//
+//        }
+//        addItemButton.frame = CGRect(x: 20, y: 230, width: 121, height: 36)
+//        calcButton.frame = CGRect(x: 61, y: 662, width: 270, height: 51)
+////        print("the map count is \(map.count)")
+//
+//    }
     
     func getFinalExamWorth(marks:[Mark]) -> Float {
         var total: Float = 0
@@ -163,4 +164,5 @@ class CalculateGradeViewController: UIViewController {
     func wrapperViewDidLoad(){
         viewController.viewDidLoad()
     }
+   
 }

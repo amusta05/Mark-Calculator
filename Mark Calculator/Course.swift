@@ -69,4 +69,6 @@ struct Course {
         self.totalPercentageOfCourse = totalPercentageOfCourse
     }
     
+  
+    
 }

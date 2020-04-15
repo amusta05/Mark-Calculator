@@ -318,7 +318,7 @@
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <state key="normal" title="Add Course"/>
                                 <connections>
-                                    <action selector="addCourseButtonPressed:" destination="Kin-NC-uID" eventType="touchUpInside" id="9c7-1f-Frx"/>
+                                    <segue destination="hs4-CE-18w" kind="unwind" unwindAction="unwindToView:" id="UMU-pq-dnH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQO-ey-ZO3">
@@ -368,6 +368,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQ6-kS-eco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hs4-CE-18w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1800.0000000000002" y="119.86607142857142"/>
         </scene>
