@@ -142,41 +142,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QoN-6j-jKh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="7q9-7o-QRz"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="nzA-eM-uU2"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4e-59-LZX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y23-ZR-68b">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLY-EL-Zem">
+                                                <rect key="frame" x="30" y="70" width="252" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnE-1T-i7f">
+                                                <rect key="frame" x="30" y="735" width="344" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                                <state key="normal" title="Calculate Semester Average"/>
+                                                <connections>
+                                                    <action selector="calcAvgButtonPressed:" destination="aM1-JQ-HUg" eventType="touchUpInside" id="LLU-vH-Xmi"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.68233454230000001" green="0.68236786130000004" blue="0.69865536689999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="dkH-4y-4hA"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="X5P-fy-kZr"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYa-PA-OV2">
-                                <rect key="frame" x="30" y="77" width="134" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAc-zJ-sq2">
-                                <rect key="frame" x="34" y="717" width="346" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="Calculate Semester Average">
-                                    <color key="titleColor" red="0.074509803921568626" green="0.49411764705882355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.68233454230000001" green="0.68236786130000004" blue="0.69865536689999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QoN-6j-jKh" firstAttribute="bottom" secondItem="thH-nx-aWI" secondAttribute="bottom" id="12B-mJ-ZW3"/>
-                            <constraint firstItem="QoN-6j-jKh" firstAttribute="leading" secondItem="thH-nx-aWI" secondAttribute="leading" id="LPr-CV-jSg"/>
-                            <constraint firstItem="QoN-6j-jKh" firstAttribute="trailing" secondItem="thH-nx-aWI" secondAttribute="trailing" id="TXX-z7-tWd"/>
-                            <constraint firstItem="QoN-6j-jKh" firstAttribute="top" secondItem="thH-nx-aWI" secondAttribute="top" id="qaW-on-qZ8"/>
+                            <constraint firstItem="C4e-59-LZX" firstAttribute="trailing" secondItem="thH-nx-aWI" secondAttribute="trailing" id="Anh-15-9x8"/>
+                            <constraint firstItem="C4e-59-LZX" firstAttribute="top" secondItem="KWG-N8-1jL" secondAttribute="top" id="ELc-nP-nFT"/>
+                            <constraint firstItem="C4e-59-LZX" firstAttribute="leading" secondItem="thH-nx-aWI" secondAttribute="leading" id="RYb-2D-fVb"/>
+                            <constraint firstItem="C4e-59-LZX" firstAttribute="bottom" secondItem="thH-nx-aWI" secondAttribute="bottom" id="mi1-7i-tDh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="thH-nx-aWI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Courses" image="folder.fill" catalog="system" id="kkJ-Dt-fXI"/>
                     <connections>
-                        <outlet property="calcSemesterButton" destination="MAc-zJ-sq2" id="L8T-3D-Sgt"/>
-                        <outlet property="scrollView" destination="QoN-6j-jKh" id="QIy-CE-E5m"/>
+                        <outlet property="calcAverageButton" destination="dnE-1T-i7f" id="bqc-XY-YZV"/>
                         <segue destination="kno-KY-6o2" kind="presentation" identifier="calculateSemAvg" modalPresentationStyle="fullScreen" id="jR6-KG-vUz"/>
                     </connections>
                 </viewController>

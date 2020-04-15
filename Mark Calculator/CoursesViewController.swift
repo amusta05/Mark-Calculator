@@ -11,21 +11,42 @@ import UIKit
 class CoursesViewController: UIViewController {
     
     var dict: [String: Course] = [:]
-    var yCounter = 125.0
+    var yCounter = 120.0
     var yCount = 797.0
-    @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var calcSemesterButton: UIButton!
+    var flag = 0
+    @IBOutlet weak var calcAverageButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("comes here in da calc")
         print(dict.count)
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 1000)
-        var i = 0;
-        for (key,_) in dict {
+        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 1000)
+        
+        flag = 1
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
+        if flag == 1{
+            print("the dict count is \(dict.count)")
+            let  buttons = getButtons(view: self.view)
+            //print(buttons.count)
+            var i = 1
+            while i < buttons.count{
+                
+                buttons[i].removeFromSuperview()
+                i += 1
+            }
+            i = 0
+            yCounter = 120.0
+            for (key,_) in dict {
                 let button = UIButton(type:.system)
                 
-                button.frame = CGRect(x: 21, y: yCounter, width: 357, height: 47)
+                button.frame = CGRect(x: 30, y: yCounter, width: 357, height: 47)
                 button.backgroundColor = UIColor.systemGray6
                 button.setTitle(key, for:.normal )
                 button.setTitleColor(UIColorFromRGB(rgbValue: 0x137EFF), for: .normal)
@@ -37,23 +58,20 @@ class CoursesViewController: UIViewController {
                 yCounter += 60
                 print("yCounter is \(yCounter)")
                 i += 1
+                // COME BACK TO THIS FOR ERROR CHECKING
                 if i >= 10{
-                    calcSemesterButton.frame = CGRect(x: 34, y: yCount, width: 346, height: 62)
+                    //calcSemAvgButton.frame = CGRect(x: 34, y: yCount, width: 346, height: 62)
                     yCount += 80
                     print("yCount is \(yCount)")
                 }
+            }
+            
         }
         
-
-        
-        // Do any additional setup after loading the view.
     }
     
     
-    @IBAction func calculateSemAvgPressed(_ sender: UIButton) {
-        
-        self.performSegue(withIdentifier: "calculateSemAvg", sender: self)
-    }
+    
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -65,6 +83,22 @@ class CoursesViewController: UIViewController {
     @objc func buttonClicked(sender: UIButton){
         print("button clicked")
     }
+    
+    @IBAction func calcAvgButtonPressed(_ sender: Any) {
+    }
+    
+    func getButtons(view: UIView) -> [UIButton] {
+        var results = [UIButton]()
+        for subview in view.subviews as [UIView] {
+            if let textField = subview as? UIButton {
+                results += [textField]
+            } else {
+                results += getButtons(view: subview)
+            }
+        }
+        return results
+    }
+    
     /*
      // MARK: - Navigation
      
