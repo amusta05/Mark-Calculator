@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Courses-->
+        <!--Add Course-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mark_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -117,7 +117,7 @@
                         <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Courses" image="doc.fill" catalog="system" id="ur7-2E-kHv"/>
+                    <tabBarItem key="tabBarItem" title="Add Course" image="doc.fill" catalog="system" id="ur7-2E-kHv"/>
                     <connections>
                         <outlet property="addItemOutlet" destination="FBT-9o-sKb" id="JSM-m1-y0M"/>
                         <outlet property="calculateButton" destination="vsi-YP-4jR" id="hMM-Aq-aZ2"/>
@@ -142,6 +142,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QoN-6j-jKh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="7q9-7o-QRz"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="nzA-eM-uU2"/>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYa-PA-OV2">
                                 <rect key="frame" x="30" y="77" width="134" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -150,21 +155,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAc-zJ-sq2">
-                                <rect key="frame" x="66" y="707" width="278" height="69"/>
+                                <rect key="frame" x="34" y="717" width="346" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="Calculate Semester Average"/>
+                                <state key="normal" title="Calculate Semester Average">
+                                    <color key="titleColor" red="0.074509803921568626" green="0.49411764705882355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="calculateSemAvgPressed:" destination="aM1-JQ-HUg" eventType="touchUpInside" id="QCH-q4-3lC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.68233454230000001" green="0.68236786130000004" blue="0.69865536689999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QoN-6j-jKh" firstAttribute="bottom" secondItem="thH-nx-aWI" secondAttribute="bottom" id="12B-mJ-ZW3"/>
+                            <constraint firstItem="QoN-6j-jKh" firstAttribute="leading" secondItem="thH-nx-aWI" secondAttribute="leading" id="LPr-CV-jSg"/>
+                            <constraint firstItem="QoN-6j-jKh" firstAttribute="trailing" secondItem="thH-nx-aWI" secondAttribute="trailing" id="TXX-z7-tWd"/>
+                            <constraint firstItem="QoN-6j-jKh" firstAttribute="top" secondItem="thH-nx-aWI" secondAttribute="top" id="qaW-on-qZ8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="thH-nx-aWI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Courses" image="folder.fill" catalog="system" id="kkJ-Dt-fXI"/>
                     <connections>
+                        <outlet property="scrollView" destination="QoN-6j-jKh" id="QIy-CE-E5m"/>
                         <segue destination="kno-KY-6o2" kind="presentation" identifier="calculateSemAvg" modalPresentationStyle="fullScreen" id="jR6-KG-vUz"/>
                     </connections>
                 </viewController>
@@ -298,14 +312,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-ph-1BJ">
-                                <rect key="frame" x="322" y="498" width="67" height="21"/>
+                                <rect key="frame" x="322" y="498" width="78" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49278236040000001" green="0.073420984829999994" blue="0.1126439772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0j-dw-bT0">
-                                <rect key="frame" x="322" y="537" width="67" height="32"/>
+                                <rect key="frame" x="322" y="537" width="78" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49278236040000001" green="0.073420984829999994" blue="0.1126439772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

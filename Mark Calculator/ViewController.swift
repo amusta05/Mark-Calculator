@@ -263,6 +263,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         addItemOutlet.frame = CGRect(x: 20, y: 230, width: 121, height: 36)
         calculateButton.frame = CGRect(x: 61, y: 662, width: 270, height: 51)
+        let secondTab = (self.tabBarController?.viewControllers?[1])! as!  CoursesViewController
+        secondTab.dict = courses
     }
     
     
