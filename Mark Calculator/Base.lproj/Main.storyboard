@@ -450,7 +450,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <action selector="backButtonSemAvg:" destination="kno-KY-6o2" eventType="touchUpInside" id="adH-VT-sTb"/>
+                                    <action selector="backButtonPressed:" destination="kno-KY-6o2" eventType="touchUpInside" id="c5d-Rs-REU"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -85,6 +85,12 @@ class CoursesViewController: UIViewController {
     }
     
     @IBAction func calcAvgButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "calculateSemAvg", sender:self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SemesterAverageViewController
+        vc.map = dict
     }
     
     func getButtons(view: UIView) -> [UIButton] {
