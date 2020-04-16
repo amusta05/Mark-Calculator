@@ -67,6 +67,23 @@ class SemesterAverageViewController: UIViewController {
             yCounter += 30
         }
         
+        yCounter += 40
+        
+        let semesterAvgLabel = UILabel()
+        semesterAvgLabel.frame = CGRect(x: 28, y: yCounter, width: 150, height: 21)
+        semesterAvgLabel.font = UIFont(name: "Helvetica Bold", size:16.5 )
+        semesterAvgLabel.text = "Semester Average: "
+        semesterAvgLabel.textColor = .black
+        self.view.addSubview(semesterAvgLabel)
+        
+        let finalMark = UILabel()
+        finalMark.frame = CGRect(x: 185, y: yCounter, width: 150, height: 21)
+        finalMark.font = UIFont(name: "Helvetica Bold", size: 16.5)
+        finalMark.text = String(format: "%.1f %%",getSemesterAverage(dict: map))
+        finalMark.textColor = UIColorFromRGB(rgbValue: 0x7D121C)
+        self.view.addSubview(finalMark)
+        
+        
         
     }
    
@@ -99,6 +116,32 @@ class SemesterAverageViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func getSemesterAverage(dict: [String:Course]) -> Float {
+        
+        var totalWeight: Float = 0.0
+        var totalPercentOfMark = 0.0
+        for (_,value) in dict{
+            
+            let totalVal = getCurrentMark(marks: value.marks) * value.getWeight()
+            
+            totalWeight = totalWeight + value.getWeight()
+            totalPercentOfMark = totalPercentOfMark + Double(totalVal)
+            
+            
+        }
+        totalPercentOfMark = totalPercentOfMark / Double(totalWeight)
+        return Float(totalPercentOfMark)
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+          return UIColor(
+              red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+              green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+              blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+              alpha: CGFloat(1.0)
+          )
+      }
     /*
     // MARK: - Navigation
 
