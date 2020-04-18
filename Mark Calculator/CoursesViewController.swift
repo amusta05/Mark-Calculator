@@ -16,7 +16,8 @@ class CoursesViewController: UIViewController {
     
     var flag = 0
     @IBOutlet weak var calcAverageButton: UIButton!
-    
+    var buttonClickedStr: String!
+    var button:  UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("comes here in da calc")
@@ -44,7 +45,7 @@ class CoursesViewController: UIViewController {
             i = 0
             yCounter = 120.0
             for (key,_) in dict {
-                let button = UIButton(type:.system)
+                button = UIButton(type:.system)
                 
                 button.frame = CGRect(x: 30, y: yCounter, width: 357, height: 47)
                 button.backgroundColor = UIColor.systemGray6
@@ -81,7 +82,9 @@ class CoursesViewController: UIViewController {
         )
     }
     @objc func buttonClicked(sender: UIButton){
-        print("button clicked")
+    
+       buttonClickedStr = button.titleLabel?.text
+       self.performSegue(withIdentifier:"courseInfo" , sender: self)
     }
     
     @IBAction func calcAvgButtonPressed(_ sender: Any) {
@@ -89,8 +92,17 @@ class CoursesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! SemesterAverageViewController
-        vc.map = dict
+        
+        if segue.identifier == "calculateSemAvg"{
+            let vc = segue.destination as! SemesterAverageViewController
+            vc.map = dict
+        }
+        else{
+            let vc  = segue.destination as!  CourseInfoViewController
+            vc.map = dict
+            vc.buttonClicked = buttonClickedStr
+        }
+       
     }
     
     func getButtons(view: UIView) -> [UIButton] {
@@ -104,6 +116,7 @@ class CoursesViewController: UIViewController {
         }
         return results
     }
+    
     
     /*
      // MARK: - Navigation

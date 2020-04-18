@@ -14,6 +14,7 @@
 		AA399B3D243D49C400848012 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA399B3C243D49C400848012 /* Course.swift */; };
 		AA399B3F243D49EF00848012 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA399B3E243D49EF00848012 /* Mark.swift */; };
 		AA997E8124402BC4008B97CC /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA997E8024402BC4008B97CC /* HelperMethods.swift */; };
+		AA997E8324491B24008B97CC /* CourseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA997E8224491B24008B97CC /* CourseInfoViewController.swift */; };
 		AACCF526243BF44800C922FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF525243BF44800C922FC /* AppDelegate.swift */; };
 		AACCF528243BF44800C922FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF527243BF44800C922FC /* SceneDelegate.swift */; };
 		AACCF52A243BF44800C922FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF529243BF44800C922FC /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		AA399B3C243D49C400848012 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		AA399B3E243D49EF00848012 /* Mark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
 		AA997E8024402BC4008B97CC /* HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
+		AA997E8224491B24008B97CC /* CourseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoViewController.swift; sourceTree = "<group>"; };
 		AACCF522243BF44800C922FC /* Mark Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mark Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCF525243BF44800C922FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AACCF527243BF44800C922FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				AACCF529243BF44800C922FC /* ViewController.swift */,
 				AA997E8024402BC4008B97CC /* HelperMethods.swift */,
 				AACCF52B243BF44800C922FC /* Main.storyboard */,
+				AA997E8224491B24008B97CC /* CourseInfoViewController.swift */,
 				AA399B3A243D456C00848012 /* SemesterAverageViewController.swift */,
 				AA399B3C243D49C400848012 /* Course.swift */,
 				AA399B3E243D49EF00848012 /* Mark.swift */,
@@ -280,6 +283,7 @@
 				AA399B3F243D49EF00848012 /* Mark.swift in Sources */,
 				AA399B3B243D456C00848012 /* SemesterAverageViewController.swift in Sources */,
 				AA399B3D243D49C400848012 /* Course.swift in Sources */,
+				AA997E8324491B24008B97CC /* CourseInfoViewController.swift in Sources */,
 				AACCF52A243BF44800C922FC /* ViewController.swift in Sources */,
 				AA37E3F8243C2EBE002C1A9E /* CalculateGradeViewController.swift in Sources */,
 				AA997E8124402BC4008B97CC /* HelperMethods.swift in Sources */,
