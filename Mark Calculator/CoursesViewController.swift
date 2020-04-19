@@ -31,7 +31,7 @@ class CoursesViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        
+        print("The count of dict.count is \(dict.count)")
         if flag == 1{
             print("the dict count is \(dict.count)")
             let  buttons = getButtons(view: self.view)
@@ -66,6 +66,8 @@ class CoursesViewController: UIViewController {
                     print("yCount is \(yCount)")
                 }
             }
+            let firstTab = (self.tabBarController?.viewControllers?[0])! as!  ViewController
+            firstTab.courses = dict
             
         }
         
@@ -91,6 +93,8 @@ class CoursesViewController: UIViewController {
         self.performSegue(withIdentifier: "calculateSemAvg", sender:self)
     }
     
+  
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "calculateSemAvg"{
@@ -115,6 +119,9 @@ class CoursesViewController: UIViewController {
             }
         }
         return results
+    }
+    @IBAction func unwindToCourse(_ unwindSegue: UIStoryboardSegue) {
+        // Use data from the view controller which initiated the unwind segue
     }
     
     

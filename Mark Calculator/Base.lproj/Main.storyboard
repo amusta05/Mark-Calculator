@@ -290,11 +290,13 @@
                         <outlet property="finalExamWorthLabel" destination="yJ6-7a-qGh" id="uav-L1-Job"/>
                         <outlet property="scrollView" destination="Saq-VU-vuD" id="MXG-kB-Iou"/>
                         <outlet property="weightLabel" destination="mda-NN-At2" id="WgN-Px-sJ4"/>
+                        <segue destination="Ixw-d4-EVH" kind="unwind" identifier="unwindCourse" unwindAction="unwindToCourse:" id="GJf-Hy-qck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qOC-eh-ahA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ixw-d4-EVH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="150.72463768115944" y="1514.7321428571429"/>
+            <point key="canvasLocation" x="151" y="1610"/>
         </scene>
         <!--Courses-->
         <scene sceneID="XxO-fo-lRC">
@@ -408,7 +410,7 @@
                                 <rect key="frame" x="215" y="270" width="174" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" red="0.49278236040609136" green="0.073420984828404479" blue="0.11264397717685153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.49803921568627452" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To finish with 50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DM-NI-mDA">
@@ -500,7 +502,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="Add Course"/>
+                                <state key="normal" title="Add Course">
+                                    <color key="titleColor" red="0.13725490196078433" green="0.51372549019607838" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="hs4-CE-18w" kind="unwind" unwindAction="unwindToView:" id="UMU-pq-dnH"/>
                                 </connections>

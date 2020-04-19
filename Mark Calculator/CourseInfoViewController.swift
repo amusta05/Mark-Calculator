@@ -23,19 +23,21 @@ class CourseInfoViewController: UIViewController {
     
     @IBOutlet weak var finalExamWorthLabel: UILabel!
     
-    var buttonClicked: String!
+    @objc var buttonClicked: String!
     
     var helper:HelperMethods = HelperMethods()
     
     var map: [String: Course] = [:]
     
-    
+    var deleteButton: UIButton!
     @IBOutlet weak var scrollView: UIView!
+    
+    var segues : UIStoryboardSegue!
     var yCounter = 367.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //segues.identifier = "courseInfo"
         let course = map[buttonClicked]
         courseNameLabel.text = course?.getCourseName()
         
@@ -226,6 +228,19 @@ class CourseInfoViewController: UIViewController {
         
         
         
+        yCounter += 100
+        deleteButton = UIButton()
+        deleteButton.frame  = CGRect(x: 72, y: yCounter, width: 250, height: 57)
+        deleteButton.setTitle("Delete Course", for: .normal)
+        deleteButton.addTarget(self, action: #selector(self.buttonClick), for: UIControl.Event.touchUpInside)
+        deleteButton.backgroundColor = .systemGray6
+        deleteButton.setTitleColor(.systemBlue, for: .normal)
+        deleteButton.tintColor = .systemBlue
+        deleteButton.titleLabel?.font = UIFont(name: "Helvetica Bold" , size: 17.0)
+        
+        
+        scrollView.addSubview(deleteButton)
+        
     }
     
     
@@ -238,7 +253,28 @@ class CourseInfoViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    @objc func buttonClick(sender: UIButton){
+        
+        map.removeValue(forKey: buttonClicked)
+        
+        self.performSegue(withIdentifier: "unwindCourse", sender: self)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let vc = segue.destination as! CoursesViewController
+        vc.dict = map
+    }
     
+//    @IBAction func unwindToCourse(_ sender: UIStoryboardSegue) {
+//      print("it is coming here")
+//
+//      map.removeValue(forKey: buttonClicked)
+//      guard let calc = sender.source as? CoursesViewController else {return}
+//      calc.dict = map
+//      self.dismiss(animated: true, completion: nil)
+//    }
+   
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -279,6 +315,8 @@ class CourseInfoViewController: UIViewController {
             alpha: CGFloat(1.0)
         )
     }
+    
+    
     
     
 }

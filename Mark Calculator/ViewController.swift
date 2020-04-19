@@ -41,9 +41,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
         print("coming to the top")
         // Do any additional setup after loading the view.
-        
+        print("courses map len is \(courses.count)")
         //print(courseItemText.text!)
         
         weightTextField.text = myPickerData[1]
@@ -54,13 +57,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         courseItemText.delegate = self
         yourMarkTextField.delegate = self
         worthTextField.delegate = self
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 3000) 
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 3000)
         
         firstTextField = courseItemText
         secondTextField = yourMarkTextField
         thirdTextField = worthTextField
     }
-    
     
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
         
