@@ -41,7 +41,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         print("coming to the top")
@@ -57,11 +57,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         courseItemText.delegate = self
         yourMarkTextField.delegate = self
         worthTextField.delegate = self
+        //firstTextField.delegate = self
+        
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 3000)
         
         firstTextField = courseItemText
         secondTextField = yourMarkTextField
         thirdTextField = worthTextField
+        secondTextField.delegate = self
+        thirdTextField.delegate = self
     }
     
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
@@ -70,8 +74,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         firstTextField.delegate = self
         self.scrollView.addSubview(firstTextField)
-        
+        //firstTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         secondTextField = helper.createTextField(x: 186, y: yCounter, width: 89, height: 27, viewController: self)
+        secondTextField.font = UIFont(name: "System", size: 14.0)
         self.scrollView.addSubview(secondTextField)
         secondTextField.delegate = self
         let worth = Float(secondTextField.text!)
@@ -80,6 +85,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         thirdTextField = helper.createTextField(x:280 , y: yCounter, width: 90, height: 27, viewController: self)
         thirdTextField.delegate = self
+        thirdTextField.font = UIFont(name: "System", size: 14.0)
         sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
         self.scrollView.addSubview(thirdTextField)
         let yourMark = Float(thirdTextField.text!)
@@ -208,6 +214,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     
+    
     func getTextfield(view: UIView) -> [UITextField] {
         var results = [UITextField]()
         for subview in view.subviews as [UIView] {
@@ -270,7 +277,59 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == secondTextField{
+            let currentText = textField.text ?? ""
+            
+            // attempt to read the range they are trying to change, or exit if we can't
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            
+            // add their new text to the existing text
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // make sure the result is under 16 characters
+            return updatedText.count <= 5
+        }
+        else if textField == thirdTextField{
+            let currentText = textField.text ?? ""
+            
+            // attempt to read the range they are trying to change, or exit if we can't
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            
+            // add their new text to the existing text
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // make sure the result is under 16 characters
+            return updatedText.count <= 5
+            
+        }
+        else if textField == worthTextField{
+            let currentText = textField.text ?? ""
+            
+            // attempt to read the range they are trying to change, or exit if we can't
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            
+            // add their new text to the existing text
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // make sure the result is under 16 characters
+            return updatedText.count <= 5
+        }
+        else if textField == yourMarkTextField{
+            let currentText = textField.text ?? ""
+            
+            // attempt to read the range they are trying to change, or exit if we can't
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            
+            // add their new text to the existing text
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // make sure the result is under 16 characters
+            return updatedText.count <= 5
+            
+        }
+        return true
+    }
 }
 
 

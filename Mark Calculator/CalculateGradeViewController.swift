@@ -74,6 +74,7 @@ class CalculateGradeViewController: UIViewController {
         }
         else{
             let toGet50 = String(format: "%.1f %%",calculateToGetNMark(n: 50, array: array))
+            //toGet50Label.frame = CGRect
             toGet50Label.text = toGet50
             
             let toGet60 = String(format: "%.1f %%",calculateToGetNMark(n: 60, array: array))

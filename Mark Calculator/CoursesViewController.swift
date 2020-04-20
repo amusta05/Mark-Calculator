@@ -90,7 +90,14 @@ class CoursesViewController: UIViewController {
     }
     
     @IBAction func calcAvgButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "calculateSemAvg", sender:self)
+        
+        if dict.count == 0{
+            createAlert(title: "Error", message: "No courses available to calculate semester average")
+        }
+        else{
+            self.performSegue(withIdentifier: "calculateSemAvg", sender:self)
+        }
+        
     }
     
   
@@ -123,7 +130,14 @@ class CoursesViewController: UIViewController {
     @IBAction func unwindToCourse(_ unwindSegue: UIStoryboardSegue) {
         // Use data from the view controller which initiated the unwind segue
     }
-    
+    func createAlert(title: String,message: String) -> Void{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        self.present(alert,animated: true,completion: nil)
+    }
     
     /*
      // MARK: - Navigation

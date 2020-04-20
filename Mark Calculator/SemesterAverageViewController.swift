@@ -141,7 +141,16 @@ class SemesterAverageViewController: UIViewController {
               blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
               alpha: CGFloat(1.0)
           )
-      }
+    }
+    
+    func createAlert(title: String,message: String) -> Void{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        self.present(alert,animated: true,completion: nil)
+    }
     /*
     // MARK: - Navigation
 
