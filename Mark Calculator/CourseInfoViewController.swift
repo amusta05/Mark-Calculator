@@ -255,9 +255,26 @@ class CourseInfoViewController: UIViewController {
      */
     @objc func buttonClick(sender: UIButton){
         
-        map.removeValue(forKey: buttonClicked)
-        
-        self.performSegue(withIdentifier: "unwindCourse", sender: self)
+        let alert = UIAlertController(title: "Are you sure?", message: "If you delete the course,then you won't able to retreive it again", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { (action) in
+                 
+            alert.dismiss(animated: true, completion: nil)
+            let courseDeletedAlert = UIAlertController(title: "Course deleted", message: "Course has been successfuly deleted", preferredStyle: UIAlertController.Style.alert)
+            courseDeletedAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+                    self.map.removeValue(forKey: self.buttonClicked)
+                               
+                    self.performSegue(withIdentifier: "unwindCourse", sender: self)
+                    courseDeletedAlert.dismiss(animated: true, completion: nil)
+            }))
+          
+            self.present(courseDeletedAlert,animated: true,completion: nil)
+            
+        }))
+        self.present(alert,animated: true,completion: nil)
+     
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -266,14 +283,7 @@ class CourseInfoViewController: UIViewController {
         vc.dict = map
     }
     
-//    @IBAction func unwindToCourse(_ sender: UIStoryboardSegue) {
-//      print("it is coming here")
-//
-//      map.removeValue(forKey: buttonClicked)
-//      guard let calc = sender.source as? CoursesViewController else {return}
-//      calc.dict = map
-//      self.dismiss(animated: true, completion: nil)
-//    }
+
    
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

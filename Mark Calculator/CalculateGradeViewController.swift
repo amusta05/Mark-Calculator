@@ -130,8 +130,6 @@ class CalculateGradeViewController: UIViewController {
         let finalExamWorth = getFinalExamWorth(marks: array)
         var total = Float(n) - totalPercent
         total = total / (finalExamWorth/100)
-        //total = total / (
-        
         return total
     }
     
