@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630C4F524903C1C338ECD0DF /* Pods_Mark_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DBBC558D4260E3F5DB2637 /* Pods_Mark_Calculator.framework */; };
+		769935E99C7A499EA422F4AA /* Pods_Mark_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8418F3B5A92FA70CAE36AB /* Pods_Mark_CalculatorTests.framework */; };
 		AA37E3F6243BF95F002C1A9E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */; };
 		AA37E3F8243C2EBE002C1A9E /* CalculateGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */; };
 		AA399B39243D14CD00848012 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA399B38243D14CD00848012 /* CoursesViewController.swift */; };
@@ -22,6 +24,8 @@
 		AACCF52F243BF44A00C922FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACCF52E243BF44A00C922FC /* Assets.xcassets */; };
 		AACCF53D243BF44B00C922FC /* Mark_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF53C243BF44B00C922FC /* Mark_CalculatorTests.swift */; };
 		AACCF548243BF44B00C922FC /* Mark_CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACCF547243BF44B00C922FC /* Mark_CalculatorUITests.swift */; };
+		AAFC372B2456139600A8BDE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAFC372A2456139600A8BDE9 /* GoogleService-Info.plist */; };
+		D9472982A4674638E5041DC5 /* Pods_Mark_Calculator_Mark_CalculatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF326CBC9055B2ED846E079 /* Pods_Mark_Calculator_Mark_CalculatorUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A8418F3B5A92FA70CAE36AB /* Pods_Mark_CalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mark_CalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A2EB420F4899A3C716EE194 /* Pods-Mark CalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark CalculatorTests.debug.xcconfig"; path = "Target Support Files/Pods-Mark CalculatorTests/Pods-Mark CalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		51DBBC558D4260E3F5DB2637 /* Pods_Mark_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mark_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CF326CBC9055B2ED846E079 /* Pods_Mark_Calculator_Mark_CalculatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mark_Calculator_Mark_CalculatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DB62819B096B11757D8ADC2 /* Pods-Mark Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark Calculator.release.xcconfig"; path = "Target Support Files/Pods-Mark Calculator/Pods-Mark Calculator.release.xcconfig"; sourceTree = "<group>"; };
+		75D7A586A41267A01C5D9143 /* Pods-Mark CalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark CalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-Mark CalculatorTests/Pods-Mark CalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		91C8A76243DCB8C98571B861 /* Pods-Mark Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark Calculator.debug.xcconfig"; path = "Target Support Files/Pods-Mark Calculator/Pods-Mark Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateGradeViewController.swift; sourceTree = "<group>"; };
 		AA399B38243D14CD00848012 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +74,9 @@
 		AACCF543243BF44B00C922FC /* Mark CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mark CalculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCF547243BF44B00C922FC /* Mark_CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mark_CalculatorUITests.swift; sourceTree = "<group>"; };
 		AACCF549243BF44B00C922FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFC372A2456139600A8BDE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CCD3F977A34CC4425AE05EB1 /* Pods-Mark Calculator-Mark CalculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark Calculator-Mark CalculatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mark Calculator-Mark CalculatorUITests/Pods-Mark Calculator-Mark CalculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E95C796C75DD80295F8198D4 /* Pods-Mark Calculator-Mark CalculatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark Calculator-Mark CalculatorUITests.release.xcconfig"; path = "Target Support Files/Pods-Mark Calculator-Mark CalculatorUITests/Pods-Mark Calculator-Mark CalculatorUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630C4F524903C1C338ECD0DF /* Pods_Mark_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769935E99C7A499EA422F4AA /* Pods_Mark_CalculatorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +100,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9472982A4674638E5041DC5 /* Pods_Mark_Calculator_Mark_CalculatorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8DA57880FD47CF8F0BD4F35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51DBBC558D4260E3F5DB2637 /* Pods_Mark_Calculator.framework */,
+				5CF326CBC9055B2ED846E079 /* Pods_Mark_Calculator_Mark_CalculatorUITests.framework */,
+				2A8418F3B5A92FA70CAE36AB /* Pods_Mark_CalculatorTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AACCF519243BF44800C922FC = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +124,8 @@
 				AACCF53B243BF44B00C922FC /* Mark CalculatorTests */,
 				AACCF546243BF44B00C922FC /* Mark CalculatorUITests */,
 				AACCF523243BF44800C922FC /* Products */,
+				B7DDDAEC06AFF886B932F1A1 /* Pods */,
+				A8DA57880FD47CF8F0BD4F35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +156,7 @@
 				AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */,
 				AACCF52E243BF44A00C922FC /* Assets.xcassets */,
 				AACCF533243BF44A00C922FC /* Info.plist */,
+				AAFC372A2456139600A8BDE9 /* GoogleService-Info.plist */,
 			);
 			path = "Mark Calculator";
 			sourceTree = "<group>";
@@ -149,6 +179,20 @@
 			path = "Mark CalculatorUITests";
 			sourceTree = "<group>";
 		};
+		B7DDDAEC06AFF886B932F1A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91C8A76243DCB8C98571B861 /* Pods-Mark Calculator.debug.xcconfig */,
+				6DB62819B096B11757D8ADC2 /* Pods-Mark Calculator.release.xcconfig */,
+				CCD3F977A34CC4425AE05EB1 /* Pods-Mark Calculator-Mark CalculatorUITests.debug.xcconfig */,
+				E95C796C75DD80295F8198D4 /* Pods-Mark Calculator-Mark CalculatorUITests.release.xcconfig */,
+				4A2EB420F4899A3C716EE194 /* Pods-Mark CalculatorTests.debug.xcconfig */,
+				75D7A586A41267A01C5D9143 /* Pods-Mark CalculatorTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,9 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AACCF54C243BF44B00C922FC /* Build configuration list for PBXNativeTarget "Mark Calculator" */;
 			buildPhases = (
+				A29471AB93A80DCD4DD7A00D /* [CP] Check Pods Manifest.lock */,
 				AACCF51E243BF44800C922FC /* Sources */,
 				AACCF51F243BF44800C922FC /* Frameworks */,
 				AACCF520243BF44800C922FC /* Resources */,
+				BAD2BC547BD4883A480F1ED0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +219,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AACCF54F243BF44B00C922FC /* Build configuration list for PBXNativeTarget "Mark CalculatorTests" */;
 			buildPhases = (
+				91AF3CF0078E67AF8150BCB8 /* [CP] Check Pods Manifest.lock */,
 				AACCF534243BF44B00C922FC /* Sources */,
 				AACCF535243BF44B00C922FC /* Frameworks */,
 				AACCF536243BF44B00C922FC /* Resources */,
@@ -191,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AACCF552243BF44B00C922FC /* Build configuration list for PBXNativeTarget "Mark CalculatorUITests" */;
 			buildPhases = (
+				0940CE0F12F69736A7F3A619 /* [CP] Check Pods Manifest.lock */,
 				AACCF53F243BF44B00C922FC /* Sources */,
 				AACCF540243BF44B00C922FC /* Frameworks */,
 				AACCF541243BF44B00C922FC /* Resources */,
+				C395E3A85AC3AEDE76BAA7F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA37E3F6243BF95F002C1A9E /* Launch Screen.storyboard in Resources */,
+				AAFC372B2456139600A8BDE9 /* GoogleService-Info.plist in Resources */,
 				AACCF52F243BF44A00C922FC /* Assets.xcassets in Resources */,
 				AACCF52D243BF44800C922FC /* Main.storyboard in Resources */,
 			);
@@ -274,6 +324,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0940CE0F12F69736A7F3A619 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mark Calculator-Mark CalculatorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91AF3CF0078E67AF8150BCB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mark CalculatorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A29471AB93A80DCD4DD7A00D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mark Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAD2BC547BD4883A480F1ED0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mark Calculator/Pods-Mark Calculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mark Calculator/Pods-Mark Calculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mark Calculator/Pods-Mark Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C395E3A85AC3AEDE76BAA7F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mark Calculator-Mark CalculatorUITests/Pods-Mark Calculator-Mark CalculatorUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mark Calculator-Mark CalculatorUITests/Pods-Mark Calculator-Mark CalculatorUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mark Calculator-Mark CalculatorUITests/Pods-Mark Calculator-Mark CalculatorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AACCF51E243BF44800C922FC /* Sources */ = {
@@ -452,6 +605,7 @@
 		};
 		AACCF54D243BF44B00C922FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91C8A76243DCB8C98571B861 /* Pods-Mark Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -469,6 +623,7 @@
 		};
 		AACCF54E243BF44B00C922FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DB62819B096B11757D8ADC2 /* Pods-Mark Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +641,7 @@
 		};
 		AACCF550243BF44B00C922FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A2EB420F4899A3C716EE194 /* Pods-Mark CalculatorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -507,6 +663,7 @@
 		};
 		AACCF551243BF44B00C922FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75D7A586A41267A01C5D9143 /* Pods-Mark CalculatorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +685,7 @@
 		};
 		AACCF553243BF44B00C922FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCD3F977A34CC4425AE05EB1 /* Pods-Mark Calculator-Mark CalculatorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -547,6 +705,7 @@
 		};
 		AACCF554243BF44B00C922FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E95C796C75DD80295F8198D4 /* Pods-Mark Calculator-Mark CalculatorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

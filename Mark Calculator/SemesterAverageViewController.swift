@@ -58,7 +58,7 @@ class SemesterAverageViewController: UIViewController {
                 weight.text = "0.75"
             }
             else if value.weight == 1.0{
-                weight.text = "1.00"
+                weight.text = "1.0"
             }
             weight.font = UIFont(name: "Helvetica", size:16.5 )
             weight.textColor = .black

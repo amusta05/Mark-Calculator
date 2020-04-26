@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var yourMarkTextField: UITextField!
     @IBOutlet weak var worthTextField: UITextField!
     var flag = 0
+    var checkFlag = 0
     var course: Course!
     var courses: [String:Course] = [:]
     var yCount: Double = 265.0
@@ -119,46 +120,63 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             createAlert(title: "Error", message: "You must enter a course name")
         }
         else{
-            course.setCourseName(courseName: courseNameText.text!)
-            var weight = Float(weightTextField.text!)
-            if weight == nil{
-                weight = 0.5
-            }
-            course.setWeight(weight: weight!)
-            //weightTextField.text = myPickerData[row]
-            allTextField = getTextfield(view: self.view)
-            //print("length is \(allTextField.count)")
-            let len = allTextField.count-1
             
-            var i = 2
-            while i < len{
-                //print("comes here")
-                var mark = Mark()
-                mark.setCourseItem(itemName: allTextField[i].text!)
-                i = i+1
-                var worth = Float(allTextField[i].text!)
-                if  worth == nil{
-                    worth = 0.0
+            for (key,_) in courses{
+                
+                if key == courseNameText.text{
+                    checkFlag = 1
                 }
-                mark.setWorth(worth: worth!)
-                i = i+1
-                //print("i is \(i)")
-                var yourMark = Float(allTextField[i].text!)
-                if yourMark  == nil{
-                    yourMark = 0.0
+            }
+            if checkFlag == 1{
+                createAlert(title: "Error", message: "The course name you are adding already exists")
+                checkFlag =  0
+            }
+            else{
+                course.setCourseName(courseName: courseNameText.text!)
+                
+                // do an error check
+                var weight = Float(weightTextField.text!)
+                if weight == nil{
+                    weight = 0.5
                 }
-                mark.setYourMark(yourMark: yourMark!)
-                let total = mark.calculatePercentageOfCourseMark()
-                mark.updateCourseGradeMark(total: total)
-                course.marks.append(mark)
-                i = i+1
+                course.setWeight(weight: weight!)
+                //weightTextField.text = myPickerData[row]
+                allTextField = getTextfield(view: self.view)
+                //print("length is \(allTextField.count)")
+                let len = allTextField.count-1
+                
+                var i = 2
+                while i < len{
+                    //print("comes here")
+                    var mark = Mark()
+                    mark.setCourseItem(itemName: allTextField[i].text!)
+                    i = i+1
+                    var worth = Float(allTextField[i].text!)
+                    if  worth == nil{
+                        worth = 0.0
+                    }
+                    mark.setWorth(worth: worth!)
+                    i = i+1
+                    //print("i is \(i)")
+                    var yourMark = Float(allTextField[i].text!)
+                    if yourMark  == nil{
+                        yourMark = 0.0
+                    }
+                    mark.setYourMark(yourMark: yourMark!)
+                    let total = mark.calculatePercentageOfCourseMark()
+                    mark.updateCourseGradeMark(total: total)
+                    course.marks.append(mark)
+                    i = i+1
+                }
+                for mark in course.marks {
+                    print(mark.getCourseItem())
+                    print(mark.getWorth())
+                    print(mark.getYourMark())
+                }
+                print(weight!)
+                
             }
-            for mark in course.marks {
-                print(mark.getCourseItem())
-                print(mark.getWorth())
-                print(mark.getYourMark())
-            }
-            print(weight!)
+            
             
         }
         
