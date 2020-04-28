@@ -39,12 +39,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var addItemOutlet: UIButton!
     @IBOutlet weak var calculateButton: UIButton!
-    
+    var db: DatabaseManager!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
     override func viewDidAppear(_ animated: Bool) {
+        db = DatabaseManager()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+       
+        
         print("coming to the top")
         // Do any additional setup after loading the view.
         print("courses map len is \(courses.count)")
@@ -168,10 +175,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     course.marks.append(mark)
                     i = i+1
                 }
+                let tot = helper.getTotalPercentOfCourse(marks: course.marks)
+                course.setTotalPercentageOfCourse(totalPercentageOfCourse: tot)
+                
+                let currMark = getCurrentMark(marks: course.marks)
+                course.setCurrentMark(currentMark: currMark)
+                
+                let finalExam = getFinalExamWorth(marks: course.marks)
+                course.setFinalExamWorth(finalExamWorth: finalExam)
+                
+                //course.setFinal
+                print("PRINTING COURSE")
+                print(course.getCurrentMark())
+                print(course.getFinalExamWorth())
+                print(course.getTotalPercentOfCourse())
                 for mark in course.marks {
                     print(mark.getCourseItem())
                     print(mark.getWorth())
                     print(mark.getYourMark())
+                    print(mark.getPercentageOfCourse())
+                
                 }
                 print(weight!)
                 
@@ -347,6 +370,37 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }
         return true
+    }
+    
+    @objc func appMovedToBackground() {
+        
+        print("coming to background")
+        db.deleteTables()
+        for (key,value) in courses{
+
+            db.insertCourse(courseName: key, weight: value.getWeight(), currentMark:value.getCurrentMark(), finalExamWorth: value.getFinalExamWorth(), totalPercentOfCourse: value.getTotalPercentOfCourse())
+            for mark in value.marks{
+                db.insertMark(courseName: key, worth: mark.getWorth(), yourMark: mark.getYourMark(), percentageOfMark: mark.getPercentageOfCourse())
+            }
+
+        }
+        db.close()
+    }
+    func getCurrentMark(marks: [Mark]) ->Float{
+        var totalMark:  Float = 0
+        let check = helper.getTotalWorth(marks: marks)
+        if check == 0{
+            return 0.0
+        }
+        totalMark = helper.getTotalPercentOfCourse(marks: marks) / helper.getTotalWorth(marks: marks)
+        //print("total Mark is \ (totalMark)" )
+        totalMark = totalMark  * 100
+        return totalMark
+    }
+    func getFinalExamWorth(marks:[Mark]) -> Float {
+        var total: Float = 0
+        total = 100 - helper.getTotalWorth(marks: marks)
+        return total
     }
 }
 

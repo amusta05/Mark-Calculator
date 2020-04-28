@@ -112,7 +112,7 @@ class CourseInfoViewController: UIViewController {
         
         var percent = UILabel()
         percent.frame = CGRect(x: 322, y: yCounter, width: 137, height: 21)
-        percent.font  = UIFont(name: "Helvetica", size: 17.0)
+        percent.font  = UIFont(name: "Helvetica Bold", size: 17.0)
         percent.textColor =  UIColorFromRGB(rgbValue: 0x7D121C )
         if getFinalExamWorth(marks: course!.marks) == 0{
             percent.text = "0.0 %"
@@ -133,7 +133,7 @@ class CourseInfoViewController: UIViewController {
         
         percent = UILabel()
         percent.frame = CGRect(x: 322, y: yCounter, width: 137, height: 21)
-        percent.font  = UIFont(name: "Helvetica", size: 17.0)
+        percent.font  = UIFont(name: "Helvetica Bold", size: 17.0)
         percent.textColor =  UIColorFromRGB(rgbValue: 0x7D121C )
         if getFinalExamWorth(marks: course!.marks) == 0{
             percent.text = "0.0 %"
@@ -154,7 +154,7 @@ class CourseInfoViewController: UIViewController {
         
         percent = UILabel()
         percent.frame = CGRect(x: 322, y: yCounter, width: 137, height: 21)
-        percent.font  = UIFont(name: "Helvetica", size: 17.0)
+        percent.font  = UIFont(name: "Helvetica Bold", size: 17.0)
         percent.textColor =  UIColorFromRGB(rgbValue: 0x7D121C )
         if getFinalExamWorth(marks: course!.marks) == 0{
             percent.text = "0.0 %"
@@ -174,7 +174,7 @@ class CourseInfoViewController: UIViewController {
         
         percent = UILabel()
         percent.frame = CGRect(x: 322, y: yCounter, width: 137, height: 21)
-        percent.font  = UIFont(name: "Helvetica", size: 17.0)
+        percent.font  = UIFont(name: "Helvetica Bold", size: 17.0)
         percent.textColor =  UIColorFromRGB(rgbValue: 0x7D121C )
         
         if getFinalExamWorth(marks: course!.marks) == 0{
@@ -195,7 +195,7 @@ class CourseInfoViewController: UIViewController {
         
         percent = UILabel()
         percent.frame = CGRect(x: 322, y: yCounter, width: 137, height: 21)
-        percent.font  = UIFont(name: "Helvetica", size: 17.0)
+        percent.font  = UIFont(name: "Helvetica Bold", size: 17.0)
         percent.textColor =  UIColorFromRGB(rgbValue: 0x7D121C )
         if getFinalExamWorth(marks: course!.marks) == 0{
             percent.text = "0.0 %"
@@ -216,7 +216,7 @@ class CourseInfoViewController: UIViewController {
         
         percent = UILabel()
         percent.frame = CGRect(x: 322, y: yCounter, width: 137, height: 21)
-        percent.font  = UIFont(name: "Helvetica", size: 17.0)
+        percent.font  = UIFont(name: "Helvetica Bold", size: 17.0)
         percent.textColor =  UIColorFromRGB(rgbValue: 0x7D121C )
         if getFinalExamWorth(marks: course!.marks) == 0{
             percent.text = "0.0 %"

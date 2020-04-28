@@ -62,7 +62,10 @@ struct Course {
     mutating func setWeight(weight: Float) -> Void {
         self.weight = weight
     }
-    mutating func setCurrentMark(finalExamWorth: Float) -> Void {
+    mutating func setCurrentMark(currentMark: Float) -> Void {
+           self.currentMark = currentMark
+    }
+    mutating func setFinalExamWorth(finalExamWorth: Float) -> Void {
         self.finalExamWorth = finalExamWorth
     }
     mutating  func setTotalPercentageOfCourse(totalPercentageOfCourse: Float) -> Void {

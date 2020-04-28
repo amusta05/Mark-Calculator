@@ -103,10 +103,6 @@ class CalculateGradeViewController: UIViewController {
     }
     
     
-    
-    
-
-    
     func getFinalExamWorth(marks:[Mark]) -> Float {
         var total: Float = 0
         total = 100 - helper.getTotalWorth(marks: marks)
