@@ -85,15 +85,16 @@ struct DatabaseManager {
         sqlite3_finalize(insertStatement)
     }
     
-    func insertMark(courseName: String, worth: Float,yourMark: Float,percentageOfMark: Float) -> Void {
+    func insertMark(courseName: String,courseItem: String, worth: Float,yourMark: Float,percentageOfMark: Float) -> Void {
         
-        let insertStatementString = "INSERT INTO Mark (courseName,worth,yourMark,percentOfTotalMark) VALUES (?, ?, ?, ?);"
+        let insertStatementString = "INSERT INTO Mark (courseName,courseItem,worth,yourMark,percentOfTotalMark) VALUES (?, ?, ?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             sqlite3_bind_text(insertStatement, 1, (courseName as NSString).utf8String, -1, nil)
-            sqlite3_bind_double(insertStatement, 2, Double(worth))
-            sqlite3_bind_double(insertStatement, 3, Double(yourMark))
-            sqlite3_bind_double(insertStatement, 4, Double(percentageOfMark))
+            sqlite3_bind_text(insertStatement, 2, (courseItem as NSString).utf8String, -1, nil)
+            sqlite3_bind_double(insertStatement, 3, Double(worth))
+            sqlite3_bind_double(insertStatement, 4, Double(yourMark))
+            sqlite3_bind_double(insertStatement, 5, Double(percentageOfMark))
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully inserted row.")
             } else {
@@ -113,7 +114,7 @@ struct DatabaseManager {
         let dropCourse = "DELETE FROM Course;"
         var statement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, dropCourse, -1, &statement, nil) == SQLITE_OK {
-        
+            
             if sqlite3_step(statement) == SQLITE_DONE{
                 print("Successfully deleted course.")
             }else{
@@ -128,7 +129,7 @@ struct DatabaseManager {
         let dropMark = "DELETE FROM Mark;"
         var markStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, dropMark, -1, &markStatement, nil) == SQLITE_OK {
-        
+            
             if sqlite3_step(markStatement) == SQLITE_DONE{
                 print("Successfully deleted Mark.")
             }else{
@@ -141,5 +142,48 @@ struct DatabaseManager {
         sqlite3_finalize(markStatement)
         
         
+    }
+    
+    func read() -> [String: Course] {
+        
+        var courses: [String: Course] = [:]
+        let queryStatementString = "SELECT DISTINCT * FROM Course;"
+        var queryStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let courseName = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
+                let weight = sqlite3_column_double(queryStatement, 1)
+                let currMark = sqlite3_column_double(queryStatement, 2)
+                let finalExamWorth = sqlite3_column_double(queryStatement, 3)
+                let totalPercentOfCourse = sqlite3_column_double(queryStatement, 4)
+                var course = Course(courseName: courseName, weight: Float(weight), currentMark: Float(currMark), finalExamWorth: Float(finalExamWorth), totalPer: Float(totalPercentOfCourse))
+                let markStatement = "SELECT DISTINCT * FROM MARK"
+                var markQueryStatement: OpaquePointer? = nil
+                if sqlite3_prepare_v2(db, markStatement, -1, &markQueryStatement, nil) == SQLITE_OK {
+                    while sqlite3_step(queryStatement) == SQLITE_ROW {
+                        _ = String(describing: String(cString: sqlite3_column_text(markQueryStatement, 0)))
+                        let courseItem = String(describing: String(cString: sqlite3_column_text(markQueryStatement, 1)))
+                        let worth = sqlite3_column_double(markQueryStatement, 2)
+                        let yourMark = sqlite3_column_double(markQueryStatement, 3)
+                        let percentageOfMark = sqlite3_column_double(markQueryStatement, 4)
+                        let mark = Mark(courseItem: courseItem, worth: Float(worth), yourMark: Float(yourMark), percentageOfCourseMark: Float(percentageOfMark))
+                        course.marks.append(mark)
+                        
+                    }
+                    sqlite3_finalize(markQueryStatement)
+                }
+                else{
+                    print("SELECT statement could be preapared")
+                }
+                
+                courses[course.getCourseName()] = course
+            }
+            
+        }
+        else{
+            print("SELECT statement was not preapared.")
+        }
+        sqlite3_finalize(queryStatement)
+        return courses
     }
 }

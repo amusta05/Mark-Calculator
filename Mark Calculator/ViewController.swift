@@ -40,6 +40,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var addItemOutlet: UIButton!
     @IBOutlet weak var calculateButton: UIButton!
     var db: DatabaseManager!
+    
+   
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -183,21 +187,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 
                 let finalExam = getFinalExamWorth(marks: course.marks)
                 course.setFinalExamWorth(finalExamWorth: finalExam)
-                
-                //course.setFinal
-                print("PRINTING COURSE")
-                print(course.getCurrentMark())
-                print(course.getFinalExamWorth())
-                print(course.getTotalPercentOfCourse())
-                for mark in course.marks {
-                    print(mark.getCourseItem())
-                    print(mark.getWorth())
-                    print(mark.getYourMark())
-                    print(mark.getPercentageOfCourse())
-                
-                }
-                print(weight!)
-                
+                                
             }
             
             
@@ -374,13 +364,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @objc func appMovedToBackground() {
         
-        print("coming to background")
         db.deleteTables()
         for (key,value) in courses{
 
             db.insertCourse(courseName: key, weight: value.getWeight(), currentMark:value.getCurrentMark(), finalExamWorth: value.getFinalExamWorth(), totalPercentOfCourse: value.getTotalPercentOfCourse())
             for mark in value.marks{
-                db.insertMark(courseName: key, worth: mark.getWorth(), yourMark: mark.getYourMark(), percentageOfMark: mark.getPercentageOfCourse())
+                db.insertMark(courseName: key,courseItem: mark.getCourseItem(), worth: mark.getWorth(), yourMark: mark.getYourMark(), percentageOfMark: mark.getPercentageOfCourse())
             }
 
         }
@@ -402,6 +391,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         total = 100 - helper.getTotalWorth(marks: marks)
         return total
     }
+    
 }
 
 

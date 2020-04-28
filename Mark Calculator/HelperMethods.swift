@@ -19,7 +19,7 @@ class HelperMethods {
         
         let sampleTextField =  UITextField(frame: CGRect(x: x, y: y, width: width, height: height))
         sampleTextField.placeholder = ""
-        sampleTextField.font = UIFont.systemFont(ofSize: 14)
+        sampleTextField.font = UIFont(name: "System", size: 12.0)
         sampleTextField.borderStyle = UITextField.BorderStyle.line
         sampleTextField.autocorrectionType = UITextAutocorrectionType.no
         sampleTextField.keyboardType = UIKeyboardType.default
