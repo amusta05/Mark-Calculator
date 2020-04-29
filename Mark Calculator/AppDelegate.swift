@@ -33,11 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     func applicationWillTerminate(_ application: UIApplication) {
-        let vc = ViewController()
-        vc.fakeinit(dict: dict)
-        print(dict.count)
-        print("app closed")
+            print("comes here")
     }
+  
 
 
 }

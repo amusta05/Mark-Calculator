@@ -161,8 +161,9 @@ struct DatabaseManager {
                 var markQueryStatement: OpaquePointer? = nil
                 if sqlite3_prepare_v2(db, markStatement, -1, &markQueryStatement, nil) == SQLITE_OK {
                     while sqlite3_step(queryStatement) == SQLITE_ROW {
-                        _ = String(describing: String(cString: sqlite3_column_text(markQueryStatement, 0)))
+                        //_ = String(describing: String(cString: sqlite3_column_text(markQueryStatement, 0)))
                         let courseItem = String(describing: String(cString: sqlite3_column_text(markQueryStatement, 1)))
+                        
                         let worth = sqlite3_column_double(markQueryStatement, 2)
                         let yourMark = sqlite3_column_double(markQueryStatement, 3)
                         let percentageOfMark = sqlite3_column_double(markQueryStatement, 4)

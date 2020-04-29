@@ -41,25 +41,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var calculateButton: UIButton!
     var db: DatabaseManager!
     
-   
-    
-  
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        db = DatabaseManager()
         
+        db = DatabaseManager()
+      
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-       
-        
-        print("coming to the top")
-        // Do any additional setup after loading the view.
-        print("courses map len is \(courses.count)")
-        //print(courseItemText.text!)
+
         
         weightTextField.text = myPickerData[1]
         let thePicker = UIPickerView()
@@ -69,8 +63,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         courseItemText.delegate = self
         yourMarkTextField.delegate = self
         worthTextField.delegate = self
-        //firstTextField.delegate = self
-        
+    
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 3000)
         
         firstTextField = courseItemText
@@ -86,9 +79,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         firstTextField.delegate = self
         self.scrollView.addSubview(firstTextField)
-        //firstTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         secondTextField = helper.createTextField(x: 186, y: yCounter, width: 89, height: 27, viewController: self)
-        secondTextField.font = UIFont(name: "System", size: 14.0)
         self.scrollView.addSubview(secondTextField)
         secondTextField.delegate = self
         let worth = Float(secondTextField.text!)
@@ -97,7 +88,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         thirdTextField = helper.createTextField(x:280 , y: yCounter, width: 90, height: 27, viewController: self)
         thirdTextField.delegate = self
-        thirdTextField.font = UIFont(name: "System", size: 14.0)
         sender.frame = CGRect(x: 20 , y:yCount , width: 121, height: 36)
         self.scrollView.addSubview(thirdTextField)
         let yourMark = Float(thirdTextField.text!)
@@ -128,7 +118,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         course = Course()
         if courseNameText.text == nil || courseNameText.text?.count == 0{
-            createAlert(title: "Error", message: "You must enter a course name")
+            let  alert =  helper.createAlert(title: "Error", message: "You must enter a course name")
+           self.present(alert,animated: true,completion: nil)
         }
         else{
             
@@ -139,61 +130,37 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 }
             }
             if checkFlag == 1{
-                createAlert(title: "Error", message: "The course name you are adding already exists")
+                let alert = helper.createAlert(title: "Error", message: "The course name you are adding already exists")
+                self.present(alert,animated: true,completion: nil)
                 checkFlag =  0
             }
             else{
                 course.setCourseName(courseName: courseNameText.text!)
-                
-                // do an error check
                 var weight = Float(weightTextField.text!)
                 if weight == nil{
                     weight = 0.5
                 }
                 course.setWeight(weight: weight!)
-                //weightTextField.text = myPickerData[row]
-                allTextField = getTextfield(view: self.view)
-                //print("length is \(allTextField.count)")
+                allTextField = helper.getTextfield(view: self.view)
+                
                 let len = allTextField.count-1
                 
-                var i = 2
-                while i < len{
-                    //print("comes here")
-                    var mark = Mark()
-                    mark.setCourseItem(itemName: allTextField[i].text!)
-                    i = i+1
-                    var worth = Float(allTextField[i].text!)
-                    if  worth == nil{
-                        worth = 0.0
-                    }
-                    mark.setWorth(worth: worth!)
-                    i = i+1
-                    //print("i is \(i)")
-                    var yourMark = Float(allTextField[i].text!)
-                    if yourMark  == nil{
-                        yourMark = 0.0
-                    }
-                    mark.setYourMark(yourMark: yourMark!)
-                    let total = mark.calculatePercentageOfCourseMark()
-                    mark.updateCourseGradeMark(total: total)
-                    course.marks.append(mark)
-                    i = i+1
-                }
+                helper.addMarks(allTextField: allTextField, len: len, course: &course)
                 let tot = helper.getTotalPercentOfCourse(marks: course.marks)
                 course.setTotalPercentageOfCourse(totalPercentageOfCourse: tot)
                 
-                let currMark = getCurrentMark(marks: course.marks)
+                let currMark = helper.getCurrentMark(marks: course.marks)
                 course.setCurrentMark(currentMark: currMark)
                 
-                let finalExam = getFinalExamWorth(marks: course.marks)
+                let finalExam = helper.getFinalExamWorth(marks: course.marks)
                 course.setFinalExamWorth(finalExamWorth: finalExam)
                                 
             }
             
             
         }
-        
-        
+        yCount = 265.0
+        yCounter = 220.0
         self.performSegue(withIdentifier: "calculateGrade", sender:self)
         
     }
@@ -246,17 +213,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     
-    func getTextfield(view: UIView) -> [UITextField] {
-        var results = [UITextField]()
-        for subview in view.subviews as [UIView] {
-            if let textField = subview as? UITextField {
-                results += [textField]
-            } else {
-                results += getTextfield(view: subview)
-            }
-        }
-        return results
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! CalculateGradeViewController
@@ -276,20 +233,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         //vc.wrapperViewDidLoad() = self.wrapper()
     }
-    func createAlert(title: String,message: String) -> Void{
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-            
-        }))
-        self.present(alert,animated: true,completion: nil)
-    }
+
     @IBAction func unwindToView(_ sender: UIStoryboardSegue) {
         guard let calc = sender.source as? CalculateGradeViewController else {return}
         print(calc.course!)
         courses[calc.course.courseName] = calc.course!
+        
         courseNameText.text = ""
         weightTextField.text = "0.5"
+        courseItemText.text = ""
+        worthTextField.text = ""
+        yourMarkTextField.text = ""
         firstTextField.text = ""
         secondTextField.text = ""
         thirdTextField.text = ""
@@ -311,51 +265,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == secondTextField{
             let currentText = textField.text ?? ""
-            
-            // attempt to read the range they are trying to change, or exit if we can't
             guard let stringRange = Range(range, in: currentText) else { return false }
-            
-            // add their new text to the existing text
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            
-            // make sure the result is under 16 characters
             return updatedText.count <= 5
         }
         else if textField == thirdTextField{
             let currentText = textField.text ?? ""
-            
-            // attempt to read the range they are trying to change, or exit if we can't
             guard let stringRange = Range(range, in: currentText) else { return false }
-            
-            // add their new text to the existing text
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            
-            // make sure the result is under 16 characters
             return updatedText.count <= 5
             
         }
         else if textField == worthTextField{
             let currentText = textField.text ?? ""
-            
-            // attempt to read the range they are trying to change, or exit if we can't
             guard let stringRange = Range(range, in: currentText) else { return false }
-            
-            // add their new text to the existing text
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            
-            // make sure the result is under 16 characters
             return updatedText.count <= 5
         }
         else if textField == yourMarkTextField{
             let currentText = textField.text ?? ""
-            
-            // attempt to read the range they are trying to change, or exit if we can't
             guard let stringRange = Range(range, in: currentText) else { return false }
-            
-            // add their new text to the existing text
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            
-            // make sure the result is under 16 characters
             return updatedText.count <= 5
             
         }
@@ -375,23 +305,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         db.close()
     }
-    func getCurrentMark(marks: [Mark]) ->Float{
-        var totalMark:  Float = 0
-        let check = helper.getTotalWorth(marks: marks)
-        if check == 0{
-            return 0.0
-        }
-        totalMark = helper.getTotalPercentOfCourse(marks: marks) / helper.getTotalWorth(marks: marks)
-        //print("total Mark is \ (totalMark)" )
-        totalMark = totalMark  * 100
-        return totalMark
-    }
-    func getFinalExamWorth(marks:[Mark]) -> Float {
-        var total: Float = 0
-        total = 100 - helper.getTotalWorth(marks: marks)
-        return total
-    }
-    
+  
+
 }
 
 
