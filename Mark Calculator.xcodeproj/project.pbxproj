@@ -151,6 +151,7 @@
 				AA399B3A243D456C00848012 /* SemesterAverageViewController.swift */,
 				AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */,
 				AA399B38243D14CD00848012 /* CoursesViewController.swift */,
+				AACCF529243BF44800C922FC /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,7 +183,6 @@
 			children = (
 				AACCF525243BF44800C922FC /* AppDelegate.swift */,
 				AACCF527243BF44800C922FC /* SceneDelegate.swift */,
-				AACCF529243BF44800C922FC /* ViewController.swift */,
 				AABC29A3245A3405009AFEFE /* Model */,
 				AABC29A4245A340F009AFEFE /* View */,
 				AABC29A5245A3417009AFEFE /* Controller */,
