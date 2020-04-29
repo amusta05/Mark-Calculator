@@ -82,7 +82,7 @@ class CoursesViewController: UIViewController {
         }
         else{
             let vc  = segue.destination as!  CourseInfoViewController
-            vc.map = courseHelper.dict
+            vc.courseInfoHelper.map = courseHelper.dict
             vc.buttonClicked = courseHelper.buttonClickedStr
         }
        

@@ -202,5 +202,33 @@ class HelperMethods {
         )
     }
     
+    func getSemesterAverage(dict: [String:Course]) -> Float {
+        
+        var totalWeight: Float = 0.0
+        var totalPercentOfMark = 0.0
+        for (_,value) in dict{
+            
+            let totalVal = getCurrentMark(marks: value.marks) * value.getWeight()
+            
+            totalWeight = totalWeight + value.getWeight()
+            totalPercentOfMark = totalPercentOfMark + Double(totalVal)
+            
+            
+        }
+        totalPercentOfMark = totalPercentOfMark / Double(totalWeight)
+        return Float(totalPercentOfMark)
+    }
+    
+    func getLabels(view: UIView) -> [UILabel] {
+         var results = [UILabel]()
+         for subview in view.subviews as [UIView] {
+             if let textField = subview as? UILabel {
+                 results += [textField]
+             } else {
+                 results += getLabels(view: subview)
+             }
+         }
+         return results
+     }
     
 }
