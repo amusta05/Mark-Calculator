@@ -10,8 +10,34 @@ import Foundation
 import UIKit
 class HelperMethods {
     
+    var myPickerData = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
+    var yCounter: Double
+    var yCount: Double
+    var yCountForCalc: Int
+    var flag: Int
+    var checkFlag: Int
+    var counter: Int
+    var course: Course!
+    var allTextField: [UITextField]!
+    var firstTextField: UITextField!
+    var secondTextField: UITextField!
+    var thirdTextField: UITextField!
+    var db: DatabaseManager!
+    var allUIText: [UITextField]!
+    var courseName: UITextField!
+    var courseWeight: UITextField!
+    var first: UITextField!
+    var second: UITextField!
+    var third: UITextField!
+    
     init(){
-        
+        self.yCounter = 220.0
+        self.yCount = 265.0
+        self.yCountForCalc = 732
+        self.flag = 0
+        self.checkFlag = 0
+        self.counter = 1
+        self.allTextField = []
     }
     
     
@@ -121,7 +147,38 @@ class HelperMethods {
          total = total / (finalExamWorth/100)
          return total
     }
+
+  
+    func checkIfCourseeExists(courses: [String: Course],courseName:String, flag: inout Int ){
+        
+        for (key,_) in courses{
+            
+            if key == courseName{
+                flag = 1
+            }
+        }
+        
+    }
     
-    
+    func removeTextFields(len: Int, textFields: inout [UITextField]!){
+        var i = 5
+        while i <= len{
+            
+            textFields[i].removeFromSuperview()
+            i = i + 1
+            
+        }
+        
+    }
+    func calculateDiff(yCount: inout Double, yCounter: inout Double){
+        
+        if yCount - yCounter != 44{
+            var totalDif = 44
+            let  diff = yCount - yCounter
+            totalDif = totalDif - Int(diff)
+            yCount = yCount + Double(totalDif)
+            
+        }
+    }
     
 }

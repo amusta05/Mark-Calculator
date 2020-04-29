@@ -24,13 +24,8 @@ class CalculateGradeViewController: UIViewController {
     @IBOutlet weak var toGet80Label: UILabel!
     @IBOutlet weak var toGet90Label: UILabel!
     @IBOutlet weak var toGet100Label: UILabel!
-    var courseName: UITextField!
-    var courseWeight: UITextField!
-    var first: UITextField!
-    var second: UITextField!
-    var third: UITextField!
-    var allUIText: [UITextField]!
-    let myPicker = [String](arrayLiteral: "0.25", "0.5", "0.75", "1.0")
+
+    
     
     var addItemButton: UIButton!
     var calcButton: UIButton!
@@ -84,11 +79,4 @@ class CalculateGradeViewController: UIViewController {
         array.removeAll()
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-
- 
-    
-
-   
 }
