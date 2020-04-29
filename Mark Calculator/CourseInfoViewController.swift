@@ -242,17 +242,6 @@ class CourseInfoViewController: UIViewController {
         scrollView.addSubview(deleteButton)
         
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     @objc func buttonClick(sender: UIButton){
         
         let alert = UIAlertController(title: "Are you sure?", message: "If you delete the course,then you won't able to retreive it again", preferredStyle: UIAlertController.Style.alert)
@@ -280,7 +269,7 @@ class CourseInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let vc = segue.destination as! CoursesViewController
-        vc.dict = map
+        vc.courseHelper.dict = map
     }
     
 

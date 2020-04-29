@@ -10,32 +10,18 @@ import UIKit
 
 class CoursesViewController: UIViewController {
     
-    var dict: [String: Course] = [:]
-    var yCounter = 120.0
-    var yCount = 797.0
-    
-    var flag = 0
+    var courseHelper: CoursesHelper = CoursesHelper()
     @IBOutlet weak var calcAverageButton: UIButton!
-    var buttonClickedStr: String!
-    var button:  UIButton!
+    var helper: HelperMethods = HelperMethods()
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("comes here in da calc")
-        print(dict.count)
-        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 1000)
-        
-        flag = 1
-        
-        
-        // Do any additional setup after loading the view.
+        courseHelper.flag = 1
     }
     override func viewDidAppear(_ animated: Bool) {
-        
-        print("The count of dict.count is \(dict.count)")
-        if flag == 1{
-            print("the dict count is \(dict.count)")
-            let  buttons = getButtons(view: self.view)
-            //print(buttons.count)
+
+        if courseHelper.flag == 1{
+           
+            let  buttons = helper.getButtons(view: self.view)
             var i = 1
             while i < buttons.count{
                 
@@ -43,110 +29,67 @@ class CoursesViewController: UIViewController {
                 i += 1
             }
             i = 0
-            yCounter = 120.0
-            for (key,_) in dict {
-                button = UIButton(type:.system)
+            courseHelper.yCounter = 120.0
+            for (key,_) in courseHelper.dict {
+                courseHelper.button = UIButton(type:.system)
                 
-                button.frame = CGRect(x: 30, y: yCounter, width: 357, height: 47)
-                button.backgroundColor = UIColor.systemGray6
-                button.setTitle(key, for:.normal )
-                button.setTitleColor(UIColorFromRGB(rgbValue: 0x137EFF), for: .normal)
-                button.tintColor = .blue
+                courseHelper.button.frame = CGRect(x: 30, y: courseHelper.yCounter, width: 357, height: 47)
+                courseHelper.button.backgroundColor = UIColor.systemGray6
+                courseHelper.button.setTitle(key, for:.normal )
+                courseHelper.button.setTitleColor(helper.UIColorFromRGB(rgbValue: 0x137EFF), for: .normal)
+                courseHelper.button.tintColor = .blue
                 
-                button.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 17.0)
-                button.addTarget(self, action: #selector(self.buttonClicked), for: UIControl.Event.touchUpInside)
-                self.view.addSubview(button)
-                yCounter += 60
-                print("yCounter is \(yCounter)")
+                courseHelper.button.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 17.0)
+                courseHelper.button.addTarget(self, action: #selector(self.buttonClicked), for: UIControl.Event.touchUpInside)
+                self.view.addSubview(courseHelper.button)
+                courseHelper.yCounter += 60
+                
                 i += 1
-                // COME BACK TO THIS FOR ERROR CHECKING
                 if i >= 10{
                     //calcSemAvgButton.frame = CGRect(x: 34, y: yCount, width: 346, height: 62)
-                    yCount += 80
-                    print("yCount is \(yCount)")
+                    courseHelper.yCount += 80
+                    
                 }
             }
             let firstTab = (self.tabBarController?.viewControllers?[0])! as!  ViewController
-            firstTab.courses = dict
+            firstTab.courses = courseHelper.dict
             
         }
         
     }
-    
-    
-    
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
     @objc func buttonClicked(sender: UIButton){
     
-       buttonClickedStr = button.titleLabel?.text
+       courseHelper.buttonClickedStr = courseHelper.button.titleLabel?.text
        self.performSegue(withIdentifier:"courseInfo" , sender: self)
     }
     
     @IBAction func calcAvgButtonPressed(_ sender: Any) {
         
-        if dict.count == 0{
-            createAlert(title: "Error", message: "No courses available to calculate semester average")
+        if courseHelper.dict.count == 0{
+            let alert = helper.createAlert(title: "Error", message: "No courses available to calculate semester average")
+            self.present(alert,animated: true,completion: nil)
         }
         else{
             self.performSegue(withIdentifier: "calculateSemAvg", sender:self)
         }
         
     }
-    
-  
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "calculateSemAvg"{
             let vc = segue.destination as! SemesterAverageViewController
-            vc.map = dict
+            vc.map = courseHelper.dict
         }
         else{
             let vc  = segue.destination as!  CourseInfoViewController
-            vc.map = dict
-            vc.buttonClicked = buttonClickedStr
+            vc.map = courseHelper.dict
+            vc.buttonClicked = courseHelper.buttonClickedStr
         }
        
     }
     
-    func getButtons(view: UIView) -> [UIButton] {
-        var results = [UIButton]()
-        for subview in view.subviews as [UIView] {
-            if let textField = subview as? UIButton {
-                results += [textField]
-            } else {
-                results += getButtons(view: subview)
-            }
-        }
-        return results
-    }
+
     @IBAction func unwindToCourse(_ unwindSegue: UIStoryboardSegue) {
         // Use data from the view controller which initiated the unwind segue
     }
-    func createAlert(title: String,message: String) -> Void{
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-            
-        }))
-        self.present(alert,animated: true,completion: nil)
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

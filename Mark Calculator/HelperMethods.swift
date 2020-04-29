@@ -29,7 +29,8 @@ class HelperMethods {
     var first: UITextField!
     var second: UITextField!
     var third: UITextField!
-    
+    var addItemButton: UIButton!
+    var calcButton: UIButton!
     init(){
         self.yCounter = 220.0
         self.yCount = 265.0
@@ -180,5 +181,26 @@ class HelperMethods {
             
         }
     }
+    func getButtons(view: UIView) -> [UIButton] {
+        var results = [UIButton]()
+        for subview in view.subviews as [UIView] {
+            if let textField = subview as? UIButton {
+                results += [textField]
+            } else {
+                results += getButtons(view: subview)
+            }
+        }
+        return results
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
     
 }

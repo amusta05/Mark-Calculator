@@ -25,10 +25,7 @@ class CalculateGradeViewController: UIViewController {
     @IBOutlet weak var toGet90Label: UILabel!
     @IBOutlet weak var toGet100Label: UILabel!
 
-    
-    
-    var addItemButton: UIButton!
-    var calcButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,8 +69,6 @@ class CalculateGradeViewController: UIViewController {
             let toGet100 = String(format: "%.1f %%",helper.calculateToGetNMark(n: 100, array: array))
             toGet100Label.text = toGet100
         }
-        
-        
     }
     @IBAction func backButtonCalcPressed(_ sender: UIButton) {
         array.removeAll()

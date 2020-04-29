@@ -10,6 +10,7 @@
 		630C4F524903C1C338ECD0DF /* Pods_Mark_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DBBC558D4260E3F5DB2637 /* Pods_Mark_Calculator.framework */; };
 		769935E99C7A499EA422F4AA /* Pods_Mark_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8418F3B5A92FA70CAE36AB /* Pods_Mark_CalculatorTests.framework */; };
 		AA1B26B92457771F0013A5A1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1B26B82457771F0013A5A1 /* DatabaseManager.swift */; };
+		AA1B26BB2459547B0013A5A1 /* CoursesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1B26BA2459547B0013A5A1 /* CoursesHelper.swift */; };
 		AA37E3F6243BF95F002C1A9E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */; };
 		AA37E3F8243C2EBE002C1A9E /* CalculateGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */; };
 		AA399B39243D14CD00848012 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA399B38243D14CD00848012 /* CoursesViewController.swift */; };
@@ -55,6 +56,7 @@
 		75D7A586A41267A01C5D9143 /* Pods-Mark CalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark CalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-Mark CalculatorTests/Pods-Mark CalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		91C8A76243DCB8C98571B861 /* Pods-Mark Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark Calculator.debug.xcconfig"; path = "Target Support Files/Pods-Mark Calculator/Pods-Mark Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		AA1B26B82457771F0013A5A1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AA1B26BA2459547B0013A5A1 /* CoursesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesHelper.swift; sourceTree = "<group>"; };
 		AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateGradeViewController.swift; sourceTree = "<group>"; };
 		AA399B38243D14CD00848012 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				AA399B3E243D49EF00848012 /* Mark.swift */,
 				AA37E3F7243C2EBE002C1A9E /* CalculateGradeViewController.swift */,
 				AA399B38243D14CD00848012 /* CoursesViewController.swift */,
+				AA1B26BA2459547B0013A5A1 /* CoursesHelper.swift */,
 				AA37E3F5243BF95F002C1A9E /* Launch Screen.storyboard */,
 				AACCF52E243BF44A00C922FC /* Assets.xcassets */,
 				AACCF533243BF44A00C922FC /* Info.plist */,
@@ -445,6 +448,7 @@
 				AA997E8124402BC4008B97CC /* HelperMethods.swift in Sources */,
 				AACCF526243BF44800C922FC /* AppDelegate.swift in Sources */,
 				AACCF528243BF44800C922FC /* SceneDelegate.swift in Sources */,
+				AA1B26BB2459547B0013A5A1 /* CoursesHelper.swift in Sources */,
 				AA399B39243D14CD00848012 /* CoursesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
